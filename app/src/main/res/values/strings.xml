@@ -3,4 +3,16 @@
 	
 	<string name="app_name">RebootManager</string>
 	
+	<string name="reboot_system">Система</string>
+	<string name="reboot_system_tile">Перезагрузка</string>
+	<string name="reboot_system_desc">Выключение и включение устройства (обычная перезагрузка)</string>
+	
+	<string name="reboot_recovery">Режим восстановления</string>
+	<string name="reboot_recovery_tile">Recovery</string>
+	<string name="reboot_recovery_desc">Выключение и переход в режим восстановления (recovery mode)</string>
+	
+	<string name="reboot_bootloader">Загрузчик</string>
+	<string name="reboot_bootloader_desc">Выключение и переход в режим загрузчика (bootloader / fastboot mode)</string>
+	<string name="reboot_bootloader_tile">Bootloader</string>
+	
 </resources>
