@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<style 
+		name="AppTheme.Settings" 
+		parent="@android:style/Theme.DeviceDefault.Settings"/>
+	
+	<style 
+		name="AppTheme.Dialog" 
+		parent="@android:style/Theme.DeviceDefault.Light.Dialog"/>
+		
+</resources>
+
