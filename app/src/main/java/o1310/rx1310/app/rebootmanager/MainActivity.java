@@ -6,16 +6,25 @@
 
 package o1310.rx1310.app.rebootmanager;
 
+import android.app.AlertDialog;
+import android.content.ComponentName;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import eu.chainfire.libsuperuser.Shell;
+import o1310.rx1310.app.rebootmanager.R;
 
 public class MainActivity extends PreferenceActivity {
 	
 	protected void onCreate(Bundle s) {
 		super.onCreate(s);
+		
+		if (!Shell.SU.available()) {
+			rootNotAviable();
+		}
 		
 		PreferenceScreen p = getPreferenceManager().createPreferenceScreen(this);
 		setPreferenceScreen(p);
@@ -64,6 +73,26 @@ public class MainActivity extends PreferenceActivity {
 		
 		return super.onPreferenceTreeClick(s, p);
 		
+	}
+	
+	void rootNotAviable() {
+		AlertDialog.Builder ab = new AlertDialog.Builder(MainActivity.this);
+		ab.setMessage(R.string.root_not_aviable);
+		ab.setTitle(R.string.app_name);
+		ab.setIcon(R.mipmap.ic_launcher);
+		ab.setCancelable(false);
+		ab.setPositiveButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface du, int id) {
+					hideAppIcon();
+				}
+			});
+		AlertDialog ad = ab.create();
+		ad.show();
+	}
+	
+	void hideAppIcon() {
+		ComponentName componentToDisable = new ComponentName(getPackageName(), "o1310.rx1310.app.rebootmanager.MainActivity");
+		getPackageManager().setComponentEnabledSetting(componentToDisable, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
 	}
 	
 }

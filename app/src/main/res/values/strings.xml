@@ -15,4 +15,6 @@
 	<string name="reboot_bootloader_desc">Выключение и переход в режим загрузчика (bootloader / fastboot mode)</string>
 	<string name="reboot_bootloader_tile">Bootloader</string>
 	
+	<string name="root_not_aviable">Для работоспособности программы необходимо наличие прав суперпользователя!</string>
+	
 </resources>
