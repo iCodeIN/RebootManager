@@ -16,6 +16,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import eu.chainfire.libsuperuser.Shell;
 import o1310.rx1310.app.rebootmanager.R;
+import o1310.rx1310.app.rebootmanager.dialog.RootNotAviableDialog;
 
 public class MainActivity extends PreferenceActivity {
 	
@@ -81,9 +82,9 @@ public class MainActivity extends PreferenceActivity {
 		ab.setTitle(R.string.app_name);
 		ab.setIcon(R.mipmap.ic_launcher);
 		ab.setCancelable(false);
-		ab.setPositiveButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface du, int id) {
-					hideAppIcon();
+		ab.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface di, int id) {
+					finishAffinity();
 				}
 			});
 		AlertDialog ad = ab.create();

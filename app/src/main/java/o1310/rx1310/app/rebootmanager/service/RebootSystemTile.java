@@ -12,44 +12,27 @@ import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 import android.support.annotation.RequiresApi;
 import eu.chainfire.libsuperuser.Shell;
+import o1310.rx1310.app.rebootmanager.dialog.RootNotAviableDialog;
+import o1310.rx1310.app.rebootmanager.RebootManager;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class RebootSystemTile extends TileService {
 
-	public void onTileAdded() {
-		Shell.SU.available();
+	@Override
+	public void onClick() {
+		
+		if (!Shell.SU.available()) {
+			showError();
+		} else {
+			Shell.SU.run(RebootManager.CMD_REBOOT_SYS);
+		}
+		
 	}
-    
-    @Override
-    public void onStartListening() {
-
-        Tile tile = getQsTile();
-        
-    }
-
-    @Override
-    public void onClick() {
-        
-        if (!isSecure()) {
-
-            showDialog();
-
-        } else {
-
-            unlockAndRun(new Runnable() {
-					@Override
-					public void run() {
-
-						showDialog();
-					}
-				});
-        }
-    }
-
-    private void showDialog() {
-
-        //showDialog(TileDialog.getDialog(this));
-    }
+	
+	private void showError() {
+		showDialog(RootNotAviableDialog.getDialog(this));
+	}
+	
 }
 
 
