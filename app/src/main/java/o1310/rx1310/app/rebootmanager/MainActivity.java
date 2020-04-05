@@ -18,12 +18,10 @@ import o1310.rx1310.app.rebootmanager.RebootManager;
 
 public class MainActivity extends PreferenceActivity {
 	
-	Preference rebootSystem,
-			   rebootIntoRecovery,
-			   rebootIntoBootloader;
-	
 	protected void onCreate(Bundle b) {
 		super.onCreate(b);
+		
+		setTitle(R.string.activity_main);
 		
 		// создаем экран
 		PreferenceScreen p = getPreferenceManager().createPreferenceScreen(this);
@@ -36,19 +34,19 @@ public class MainActivity extends PreferenceActivity {
 		rootNotAviableMsg.setSummary(R.string.msg_root_not_aviable);
 		
 		// перезагрузка системы
-		rebootSystem = new Preference(this);
+		Preference rebootSystem = new Preference(this);
 		rebootSystem.setKey("rebootSystem");
 		rebootSystem.setTitle(R.string.mng_reboot_system);
 		rebootSystem.setSummary(R.string.mng_reboot_system_desc);
 		
 		// перезагрузка в режим recovery
-		rebootIntoRecovery = new Preference(this);
+		Preference rebootIntoRecovery = new Preference(this);
 		rebootIntoRecovery.setKey("rebootIntoRecovery");
 		rebootIntoRecovery.setTitle(R.string.mng_reboot_into_recovery);
 		rebootIntoRecovery.setSummary(R.string.mng_reboot_into_recovery_desc);
 		
 		// перезагрузка в bootloader
-		rebootIntoBootloader = new Preference(this);
+		Preference rebootIntoBootloader = new Preference(this);
 		rebootIntoBootloader.setKey("rebootIntoBootloader");
 		rebootIntoBootloader.setTitle(R.string.mng_reboot_into_bootloader);
 		rebootIntoBootloader.setSummary(R.string.mng_reboot_into_bootloader_desc);
@@ -59,6 +57,7 @@ public class MainActivity extends PreferenceActivity {
 			p.addPreference(rebootIntoRecovery);
 			p.addPreference(rebootIntoBootloader);
 		} else {
+			setTitle(R.string.app_name);
 			p.addPreference(rootNotAviableMsg);
 		}
 		
