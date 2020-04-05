@@ -40,16 +40,29 @@
 		
 		<!-- Сервисы -->
 		<service
-            android:name=".service.RebootSystemTile"
-            android:label="@string/tile_reboot_system"
-            android:icon="@drawable/ic_reboot"
+            android:name=".service.RebootIntoRecoveryTile"
+            android:label="@string/tile_reboot_into_recovery"
+            android:icon="@drawable/ic_recovery"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
             <meta-data
                 android:name="android.service.quicksettings.ACTIVE_TILE"
-                android:value="true" />
+                android:value="true"/>
+        </service>
+		
+		<service
+            android:name=".service.RebootIntoBootloaderTile"
+            android:label="@string/tile_reboot_into_bootloader"
+            android:icon="@drawable/ic_bootloader"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.service.quicksettings.ACTIVE_TILE"
+                android:value="true"/>
         </service>
 		
     </application>

@@ -21,9 +21,8 @@
 	<string name="mng_reboot_into_bootloader_desc">Выключение и переход в режим загрузчика (bootloader / fastboot mode)</string>
 	
 	<!-- quick tiles -->
-	<string name="tile_reboot_system">Перезагрузка</string>
-	<string name="tile_reboot_into_recovery">В recovery</string>
-	<string name="tile_reboot_into_bootloader">В bootloader</string>
+	<string name="tile_reboot_into_recovery" translatable="false">Recovery</string>
+	<string name="tile_reboot_into_bootloader" translatable="false">Bootloader</string>
 	
 	<!-- сообщения пользователю -->
 	<string name="msg_root_not_aviable">Для работоспособности программы необходимо получить права суперпользователя (root)</string>

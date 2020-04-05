@@ -23,7 +23,7 @@ public class RebootIntoRecoveryTile extends TileService {
 
 		Tile t = getQsTile();
 
-		t.setIcon(Icon.createWithResource(this, R.drawable.ic_reboot_recovery));
+		t.setIcon(Icon.createWithResource(this, R.drawable.ic_recovery));
 		t.setLabel(getString(R.string.tile_reboot_into_recovery));
 
 		if (Shell.SU.available()) {
