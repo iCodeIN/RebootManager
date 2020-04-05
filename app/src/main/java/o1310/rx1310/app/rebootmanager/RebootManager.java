@@ -5,6 +5,8 @@
  */
 
 package o1310.rx1310.app.rebootmanager;
+import android.content.Context;
+import android.widget.Toast;
 
 public class RebootManager {
 	
@@ -12,5 +14,9 @@ public class RebootManager {
 	public static String CMD_REBOOT_RECOVERY = "su -c svc power reboot recovery";
 	public static String CMD_REBOOT_BOOTLOADER = "su -c svc power reboot bootloader";
 	public static String CMD_SHUTDOWN = "su -c svc power shutdown";
+	
+	public static void showToast(String msg, Context context) {
+		Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+	}
 	
 }

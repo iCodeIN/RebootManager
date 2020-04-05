@@ -6,9 +6,7 @@
 
 package o1310.rx1310.app.rebootmanager;
 
-import android.app.AlertDialog;
 import android.content.ComponentName;
-import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -16,40 +14,53 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import eu.chainfire.libsuperuser.Shell;
 import o1310.rx1310.app.rebootmanager.R;
-import o1310.rx1310.app.rebootmanager.dialog.RootNotAviableDialog;
+import o1310.rx1310.app.rebootmanager.RebootManager;
 
 public class MainActivity extends PreferenceActivity {
 	
-	protected void onCreate(Bundle s) {
-		super.onCreate(s);
+	Preference rebootSystem,
+			   rebootIntoRecovery,
+			   rebootIntoBootloader;
+	
+	protected void onCreate(Bundle b) {
+		super.onCreate(b);
 		
-		if (!Shell.SU.available()) {
-			rootNotAviable();
-		}
-		
+		// создаем экран
 		PreferenceScreen p = getPreferenceManager().createPreferenceScreen(this);
 		setPreferenceScreen(p);
 		
-		Preference rebootSystem = new Preference(this);
+		// пункт на случай отсутствия root на девайсе
+		Preference rootNotAviableMsg = new Preference(this);
+		rootNotAviableMsg.setEnabled(false);
+		rootNotAviableMsg.setSelectable(false);
+		rootNotAviableMsg.setSummary(R.string.msg_root_not_aviable);
+		
+		// перезагрузка системы
+		rebootSystem = new Preference(this);
 		rebootSystem.setKey("rebootSystem");
-		rebootSystem.setTitle(R.string.reboot_system);
-		rebootSystem.setSummary(R.string.reboot_system_desc);
+		rebootSystem.setTitle(R.string.mng_reboot_system);
+		rebootSystem.setSummary(R.string.mng_reboot_system_desc);
 		
-		Preference rebootRecovery = new Preference(this);
-		rebootRecovery.setKey("rebootRecovery");
-		rebootRecovery.setTitle(R.string.reboot_recovery);
-		rebootRecovery.setSummary(R.string.reboot_recovery_desc);
+		// перезагрузка в режим recovery
+		rebootIntoRecovery = new Preference(this);
+		rebootIntoRecovery.setKey("rebootIntoRecovery");
+		rebootIntoRecovery.setTitle(R.string.mng_reboot_into_recovery);
+		rebootIntoRecovery.setSummary(R.string.mng_reboot_into_recovery_desc);
 		
-		Preference rebootBootloader = new Preference(this);
-		rebootBootloader.setKey("rebootBootloader");
-		rebootBootloader.setTitle(R.string.reboot_bootloader);
-		rebootBootloader.setSummary(R.string.reboot_bootloader_desc);
+		// перезагрузка в bootloader
+		rebootIntoBootloader = new Preference(this);
+		rebootIntoBootloader.setKey("rebootIntoBootloader");
+		rebootIntoBootloader.setTitle(R.string.mng_reboot_into_bootloader);
+		rebootIntoBootloader.setSummary(R.string.mng_reboot_into_bootloader_desc);
 		
-		
-		// добавление пунктов на экран
-		p.addPreference(rebootSystem);
-		p.addPreference(rebootRecovery);
-		p.addPreference(rebootBootloader);
+		// проверка наличия root
+		if (Shell.SU.available()) {
+			p.addPreference(rebootSystem);
+			p.addPreference(rebootIntoRecovery);
+			p.addPreference(rebootIntoBootloader);
+		} else {
+			p.addPreference(rootNotAviableMsg);
+		}
 		
 	}
 	
@@ -62,11 +73,11 @@ public class MainActivity extends PreferenceActivity {
 				Shell.SU.run(RebootManager.CMD_REBOOT_SYS);
 				break;
 				
-			case "rebootRecovery":
+			case "rebootIntoRecovery":
 				Shell.SU.run(RebootManager.CMD_REBOOT_RECOVERY);
 				break;
 				
-			case "rebootBootloader":
+			case "rebootIntoBootloader":
 				Shell.SU.run(RebootManager.CMD_REBOOT_BOOTLOADER);
 				break;
 			
@@ -74,26 +85,6 @@ public class MainActivity extends PreferenceActivity {
 		
 		return super.onPreferenceTreeClick(s, p);
 		
-	}
-	
-	void rootNotAviable() {
-		AlertDialog.Builder ab = new AlertDialog.Builder(MainActivity.this);
-		ab.setMessage(R.string.root_not_aviable);
-		ab.setTitle(R.string.app_name);
-		ab.setIcon(R.mipmap.ic_launcher);
-		ab.setCancelable(false);
-		ab.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface di, int id) {
-					finishAffinity();
-				}
-			});
-		AlertDialog ad = ab.create();
-		ad.show();
-	}
-	
-	void hideAppIcon() {
-		ComponentName componentToDisable = new ComponentName(getPackageName(), "o1310.rx1310.app.rebootmanager.MainActivity");
-		getPackageManager().setComponentEnabledSetting(componentToDisable, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
 	}
 	
 }
