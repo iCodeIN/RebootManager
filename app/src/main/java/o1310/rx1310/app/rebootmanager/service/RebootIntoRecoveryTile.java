@@ -16,26 +16,26 @@ import o1310.rx1310.app.rebootmanager.R;
 import o1310.rx1310.app.rebootmanager.RebootManager;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
-public class RebootSystemTile extends TileService {
+public class RebootIntoRecoveryTile extends TileService {
 
 	@Override
 	public void onStartListening() {
-		
+
 		Tile t = getQsTile();
-		
-		t.setIcon(Icon.createWithResource(this, R.drawable.ic_reboot));
-		t.setLabel(getString(R.string.tile_reboot_system));
-		
+
+		t.setIcon(Icon.createWithResource(this, R.drawable.ic_reboot_recovery));
+		t.setLabel(getString(R.string.tile_reboot_into_recovery));
+
 		if (Shell.SU.available()) {
 			t.setState(Tile.STATE_ACTIVE);
 		} else {
 			t.setState(Tile.STATE_UNAVAILABLE);
 		}
-		
+
 		t.updateTile();
-		
+
 	}
-	
+
 	// обработка нажатия
 	@Override
 	public void onClick() {
@@ -50,7 +50,7 @@ public class RebootSystemTile extends TileService {
 		}
 
 	}
-	
+
 }
 
 
