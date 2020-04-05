@@ -33,8 +33,24 @@
 			android:name=".MainActivity" 
 			android:noHistory="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+				<action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+		
+		<activity 
+			android:excludeFromRecents="true" 
+			android:finishOnCloseSystemDialogs="true" 
+			android:launchMode="singleInstance" 
+			android:name=".AdditionallyActivity" 
+			android:noHistory="true">
+            <intent-filter>
+				<action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES"/>
+				<action android:name="android.intent.action.APPLICATION_PREFERENCES"/>
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="com.cyanogenmod.category.LAUNCHER_PREFERENCES"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.PREFERENCE"/>
             </intent-filter>
         </activity>
 		
