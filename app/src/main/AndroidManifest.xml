@@ -41,7 +41,7 @@
 		<!-- Сервисы -->
 		<service
             android:name=".service.RebootSystemTile"
-            android:label="@string/reboot_system_tile"
+            android:label="@string/tile_reboot_system"
             android:icon="@drawable/ic_reboot"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
