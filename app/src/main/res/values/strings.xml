@@ -1,20 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	
-	<string name="app_name">RebootManager</string>
+	<!-- основная информация программы -->
+	<string name="app_name" translatable="false">RebootManager</string>
+	<string name="app_author" translatable="false">rx1310 (o1310)</string>
+	<string name="app_author_url" translatable="false">https://github.com/rx1310</string>
+	<string name="app_maintainer" translatable="false">@string/app_author</string>
+	<string name="app_maintainer" translatable="false">@string/app_author_url</string>
 	
-	<string name="reboot_system">Система</string>
-	<string name="reboot_system_tile">Перезагрузка</string>
-	<string name="reboot_system_desc">Выключение и включение устройства (обычная перезагрузка)</string>
+	<!-- активности -->
+	<string name="activity_main">Варианты перезагрузки</string>
+	<string name="activity_additionally">Дополнительно</string>
 	
-	<string name="reboot_recovery">Режим восстановления</string>
-	<string name="reboot_recovery_tile">Recovery</string>
-	<string name="reboot_recovery_desc">Выключение и переход в режим восстановления (recovery mode)</string>
+	<!-- варианты перезагрузки -->
+	<string name="mng_reboot_system">Система</string>
+	<string name="mng_reboot_system_desc">Выключение и включение устройства (обычная перезагрузка)</string>
+	<string name="mng_reboot_into_recovery">Режим восстановления</string>
+	<string name="mng_reboot_into_recovery_desc">Выключение и переход в режим восстановления (recovery mode)</string>
+	<string name="mng_reboot_into_bootloader">Загрузчик</string>
+	<string name="mng_reboot_into_bootloader_desc">Выключение и переход в режим загрузчика (bootloader / fastboot mode)</string>
 	
-	<string name="reboot_bootloader">Загрузчик</string>
-	<string name="reboot_bootloader_desc">Выключение и переход в режим загрузчика (bootloader / fastboot mode)</string>
-	<string name="reboot_bootloader_tile">Bootloader</string>
+	<!-- quick tiles -->
+	<string name="tile_reboot_system">Перезагрузка</string>
+	<string name="tile_reboot_into_recovery">В recovery</string>
+	<string name="tile_reboot_into_bootloader">В bootloader</string>
 	
-	<string name="root_not_aviable">Для работоспособности программы необходимо наличие прав суперпользователя!</string>
+	<!-- сообщения пользователю -->
+	<string name="msg_root_not_aviable">Для работоспособности программы необходимо получить права суперпользователя (root)</string>
+	<string name="msg_restart_for_apply">Необходимо перезагрузить устройство для применения</string>
 	
+	<!-- настройки -->
+	<string name="settings">Настройки приложения</string>
+	<string name="setting_hide_icon">Скрыть иконку</string>
+	<string name="setting_hide_icon_desc">Скрытие иконки приложения из меню приложений на рабочем столе</string>
+	<string name="setting_detectsu">DetectSU</string>
+	<string name="setting_detectsu_desc">Проверка наличия прав суперпользователя при запуске</string>
+	<string name="setting_uninstall_app">Удалить приложение</string>
+	
+	<!-- о программе -->
+	<string name="about">О программе</string>
+	<string name="info_app_version">Версия RebootManager</string>
+	<string name="info_app_author">Автор программы</string>
+	<string name="info_app_maintainer">Сборщик</string>
+	<string name="info_app_url">Веб-сайт</string>
+	<string name="info_app_url_desc">Официальный веб-сайт RebootManager, где можно скачать обновления, посмотреть исходный код или узнать больше о проекте</string>
+		
 </resources>
