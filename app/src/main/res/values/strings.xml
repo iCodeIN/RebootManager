@@ -23,7 +23,7 @@
 	<string name="tile_reboot_into_bootloader" translatable="false">Bootloader</string>
 	
 	<!-- сообщения пользователю -->
-	<string name="msg_root_not_aviable">Для работоспособности программы необходимо получить права суперпользователя (root)</string>
+	<string name="msg_root_not_available">Для работоспособности программы необходимо получить права суперпользователя (root)</string>
 	<string name="msg_restart_for_apply">Необходимо перезагрузить устройство для применения</string>
 	
 	<!-- настройки -->

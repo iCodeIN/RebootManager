@@ -46,7 +46,7 @@ public class RebootIntoBootloaderTile extends TileService {
 			Shell.SU.run(RebootManager.CMD_REBOOT_BOOTLOADER);
 		} else {
 			// сообщение об ошибке
-			RebootManager.showToast(getString(R.string.msg_root_not_aviable), this);
+			RebootManager.showToast(getString(R.string.msg_root_not_available), this);
 		}
 
 	}

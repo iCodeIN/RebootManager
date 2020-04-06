@@ -28,10 +28,10 @@ public class MainActivity extends PreferenceActivity {
 		setPreferenceScreen(p);
 		
 		// пункт на случай отсутствия root на девайсе
-		Preference rootNotAviableMsg = new Preference(this);
-		rootNotAviableMsg.setEnabled(false);
-		rootNotAviableMsg.setSelectable(false);
-		rootNotAviableMsg.setSummary(R.string.msg_root_not_aviable);
+		Preference rootNotAvailableMsg = new Preference(this);
+		rootNotAvailableMsg.setEnabled(false);
+		rootNotAvailableMsg.setSelectable(false);
+		rootNotAvailableMsg.setSummary(R.string.msg_root_not_available);
 		
 		// перезагрузка системы
 		Preference rebootSystem = new Preference(this);
@@ -52,16 +52,25 @@ public class MainActivity extends PreferenceActivity {
 		rebootIntoBootloader.setSummary(R.string.mng_reboot_into_bootloader_desc);
 		
 		// проверка наличия root
-		if (Shell.SU.available()) {
+		if (!Shell.SU.available()) {
+			setTitle(R.string.app_name);
+			p.addPreference(rootNotAvailableMsg);
+		} else {
 			p.addPreference(rebootSystem);
 			p.addPreference(rebootIntoRecovery);
 			p.addPreference(rebootIntoBootloader);
-		} else {
-			setTitle(R.string.app_name);
-			p.addPreference(rootNotAviableMsg);
 		}
 		
 	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		// принудительно выгружаем процесс из памяти
+		android.os.Process.killProcess(android.os.Process.myPid());
+	}
+
+	
 	
 	// обработка нажатий на пункты
 	public boolean onPreferenceTreeClick(PreferenceScreen s, Preference p) {
