@@ -5,6 +5,7 @@
 	<string name="app_name" translatable="false">RebootManager</string>
 	<string name="app_author" translatable="false">rx1310 (o1310)</string>
 	<string name="app_author_url" translatable="false">https://github.com/rx1310</string>
+	<string name="app_translator" translatable="false">rx1310</string>
 	
 	<!-- активности -->
 	<string name="activity_main">Варианты перезагрузки</string>
@@ -39,6 +40,7 @@
 	<string name="about">О программе</string>
 	<string name="info_app_version">Версия RebootManager</string>
 	<string name="info_app_author">Автор программы</string>
+	<string name="info_app_translator">Локализатор</string>
 	<string name="info_app_url">Веб-сайт</string>
 	<string name="info_app_url_desc">Официальный веб-сайт RebootManager, где можно скачать обновления, посмотреть исходный код или узнать больше о проекте</string>
 	<string name="info_su">Права суперпользователя</string>

@@ -65,6 +65,10 @@ public class AdditionallyActivity extends PreferenceActivity {
 		appAuthor.setTitle(R.string.info_app_author);
 		appAuthor.setSummary(R.string.app_author);
 		
+		Preference appTtanslator = new Preference(this);
+		appTtanslator.setTitle(R.string.info_app_translator);
+		appTtanslator.setSummary(R.string.app_translator);
+		
 		Preference appUrl = new Preference(this);
 		appUrl.setKey("ABOUT_APP_URL");
 		appUrl.setTitle(R.string.info_app_url);
@@ -85,6 +89,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 		p.addPreference(ctgAbout);
 		p.addPreference(appVersion);
 		p.addPreference(appAuthor);
+		p.addPreference(appTtanslator);
 		p.addPreference(appUrl);
 		p.addPreference(sysSuInfo);
 		
