@@ -6,8 +6,6 @@
 
 package o1310.rx1310.app.rebootmanager;
 
-import android.content.ComponentName;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -16,7 +14,8 @@ import eu.chainfire.libsuperuser.Shell;
 import o1310.rx1310.app.rebootmanager.R;
 import o1310.rx1310.app.rebootmanager.RebootManager;
 
-public class MainActivity extends PreferenceActivity {
+public class MainActivity extends PreferenceActivity
+ {
 	
 	protected void onCreate(Bundle b) {
 		super.onCreate(b);
