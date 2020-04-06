@@ -31,6 +31,8 @@
 	<string name="settings">Настройки приложения</string>
 	<string name="setting_hide_icon">Скрыть иконку</string>
 	<string name="setting_hide_icon_desc">Скрытие иконки приложения из меню приложений на рабочем столе</string>
+	<string name="setting_pro_mode">Режим «Pro»</string>
+	<string name="setting_pro_mode_desc">Активация расширенных возможностей приложения</string>
 	<string name="setting_uninstall_app">Удалить приложение</string>
 	
 	<!-- о программе -->
