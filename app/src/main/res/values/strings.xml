@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	
-	<!-- основная информация программы -->
-	<string name="app_name" translatable="false">RebootManager</string>
-	<string name="app_author" translatable="false">rx1310 (o1310)</string>
-	<string name="app_author_url" translatable="false">https://github.com/rx1310</string>
+	<!-- имя или ник локализатора -->
 	<string name="app_translator" translatable="false">rx1310</string>
+	<string name="app_translator_url" translatable="false">@string/app_author_url</string>
 	
 	<!-- активности -->
 	<string name="activity_main">Варианты перезагрузки</string>

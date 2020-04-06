@@ -65,9 +65,10 @@ public class AdditionallyActivity extends PreferenceActivity {
 		appAuthor.setTitle(R.string.info_app_author);
 		appAuthor.setSummary(R.string.app_author);
 		
-		Preference appTtanslator = new Preference(this);
-		appTtanslator.setTitle(R.string.info_app_translator);
-		appTtanslator.setSummary(R.string.app_translator);
+		Preference appTranslator = new Preference(this);
+		appTranslator.setKey("ABOUT_APP_TRANSLATOR_URL");
+		appTranslator.setTitle(R.string.info_app_translator);
+		appTranslator.setSummary(R.string.app_translator);
 		
 		Preference appUrl = new Preference(this);
 		appUrl.setKey("ABOUT_APP_URL");
@@ -89,7 +90,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 		p.addPreference(ctgAbout);
 		p.addPreference(appVersion);
 		p.addPreference(appAuthor);
-		p.addPreference(appTtanslator);
+		p.addPreference(appTranslator);
 		p.addPreference(appUrl);
 		p.addPreference(sysSuInfo);
 		
@@ -110,8 +111,12 @@ public class AdditionallyActivity extends PreferenceActivity {
 				startActivity(i);
 				break;
 				
+			case "ABOUT_APP_TRANSLATOR_URL":
+				RebootManager.openUrl(getString(R.string.app_translator_url), this);
+				break;
+				
 			case "ABOUT_APP_URL":
-				startActivity (new Intent (Intent.ACTION_VIEW, Uri.parse("https://")));
+				RebootManager.openUrl("https://vk.com", this);
 				break;
 
 		}

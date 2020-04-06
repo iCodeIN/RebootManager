@@ -6,8 +6,10 @@
 
 package o1310.rx1310.app.rebootmanager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.widget.Toast;
 
 public class RebootManager {
@@ -40,6 +42,10 @@ public class RebootManager {
 	
 	public static void showToast(String s, Context c) {
 		Toast.makeText(c, s, Toast.LENGTH_LONG).show();
+	}
+	
+	public static void openUrl(String url, Context c) {
+		c.startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse(url)));
 	}
 	
 }
