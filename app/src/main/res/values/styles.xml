@@ -2,10 +2,6 @@
 <resources>
 	
 	<style 
-		name="AppTheme.Settings" 
-		parent="@android:style/Theme.DeviceDefault.Settings"/>
-	
-	<style 
 		name="AppTheme.Dialog" 
 		parent="@android:style/Theme.DeviceDefault.Light.Dialog"/>
 		
