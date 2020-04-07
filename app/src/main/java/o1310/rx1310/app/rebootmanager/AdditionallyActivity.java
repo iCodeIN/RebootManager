@@ -62,12 +62,11 @@ public class AdditionallyActivity extends PreferenceActivity {
 		uninstallApp.setTitle(R.string.setting_uninstall_app);
 		
 		Preference appVersion = new Preference(this);
-		appVersion.setKey("");
 		appVersion.setTitle(R.string.info_app_version);
 		appVersion.setSummary(RebootManager.appVersion(this));
 		
 		Preference appAuthor = new Preference(this);
-		appAuthor.setKey("");
+		appAuthor.setKey("ABOUT_APP_AUTHOR_URL");
 		appAuthor.setTitle(R.string.info_app_author);
 		appAuthor.setSummary(R.string.app_author);
 		
@@ -115,6 +114,10 @@ public class AdditionallyActivity extends PreferenceActivity {
 				Intent i = new Intent(Intent.ACTION_DELETE);
 				i.setData(Uri.parse("package:" + getPackageName()));
 				startActivity(i);
+				break;
+				
+			case "ABOUT_APP_AUTHOR_URL":
+				RebootManager.openUrl(getString(R.string.app_author_url), this);
 				break;
 				
 			case "ABOUT_APP_TRANSLATOR_URL":

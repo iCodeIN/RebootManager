@@ -6,15 +6,20 @@
 
 package o1310.rx1310.app.rebootmanager;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
+import android.text.Html;
 import eu.chainfire.libsuperuser.Shell;
 import o1310.rx1310.app.rebootmanager.R;
 import o1310.rx1310.app.rebootmanager.RebootManager;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+
+// простите. я говнокодер.
 
 public class MainActivity extends PreferenceActivity {
 	
@@ -39,12 +44,6 @@ public class MainActivity extends PreferenceActivity {
 		rootNotAvailableMsg.setSelectable(false);
 		rootNotAvailableMsg.setSummary(R.string.msg_root_not_available);
 		
-		// перезагрузка системы
-		Preference rebootSystem = new Preference(this);
-		rebootSystem.setKey("rebootSystem");
-		rebootSystem.setTitle(R.string.mng_reboot_system);
-		rebootSystem.setSummary(R.string.mng_reboot_system_desc);
-		
 		// перезагрузка в режим recovery
 		Preference rebootIntoRecovery = new Preference(this);
 		rebootIntoRecovery.setKey("rebootIntoRecovery");
@@ -57,7 +56,19 @@ public class MainActivity extends PreferenceActivity {
 		rebootIntoBootloader.setTitle(R.string.mng_reboot_into_bootloader);
 		rebootIntoBootloader.setSummary(R.string.mng_reboot_into_bootloader_desc);
 		
-		// перезагрузка в bootloader
+		// перезагрузка системы
+		Preference rebootSystem = new Preference(this);
+		rebootSystem.setKey("rebootSystem");
+		rebootSystem.setTitle(R.string.mng_reboot_system);
+		rebootSystem.setSummary(R.string.mng_reboot_system_desc);
+		
+		// перезагрузка системы (без ядра)
+		Preference rebootSystemSoft = new Preference(this);
+		rebootSystemSoft.setKey("rebootSystemSoft");
+		rebootSystemSoft.setTitle(R.string.mng_reboot_system_soft);
+		rebootSystemSoft.setSummary(R.string.mng_reboot_system_soft_desc);
+		
+		// отключение системы
 		Preference sysShutdown = new Preference(this);
 		sysShutdown.setKey("sysShutdown");
 		sysShutdown.setTitle(R.string.mng_shutdown_system);
@@ -73,6 +84,7 @@ public class MainActivity extends PreferenceActivity {
 			// если включен режим "Pro"
 			if (proMode) {
 				p.addPreference(rebootSystem);
+				p.addPreference(rebootSystemSoft);
 				p.addPreference(sysShutdown);
 			}
 		}
@@ -105,18 +117,42 @@ public class MainActivity extends PreferenceActivity {
 				Shell.SU.run(RebootManager.CMD_REBOOT_SYS);
 				break;
 				
+			case "rebootSystemSoft":
+				rebootSystemSoftDlg();
+				break;
+				
 			case "sysShutdown":
 				Shell.SU.run(RebootManager.CMD_SHUTDOWN);
 				break;
-
-			/*case "rebootIntoBootloader":
-				Shell.SU.run(RebootManager.CMD_REBOOT_BOOTLOADER);
-				break;*/
 			
 		}
 		
 		return super.onPreferenceTreeClick(s, p);
 		
+	}
+	
+	void rebootSystemSoftDlg(){
+
+		// создаем диалог
+		AlertDialog.Builder b = new AlertDialog.Builder(this);
+
+		b.setTitle(R.string.app_name); // заголовок
+		b.setMessage(Html.fromHtml(getString(R.string.msg_reboot_system_soft))); // сообщение (+ задействованы теги html)
+		b.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
+				public void onClick(DialogInterface d, int i) {
+					Shell.SU.run(RebootManager.CMD_REBOOT_SYS_SOFT);
+				}
+			});
+		b.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Нет"
+				public void onClick(DialogInterface d, int i) {
+					d.cancel(); // закрывает диалог
+				}
+			});
+
+		AlertDialog a = b.create();
+
+		a.show(); // отображаем диалог
+
 	}
 	
 }
