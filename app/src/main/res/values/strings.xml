@@ -2,50 +2,50 @@
 <resources>
 	
 	<!-- имя или ник локализатора -->
-	<string name="app_translator" translatable="false">rx1310</string>
-	<string name="app_translator_url" translatable="false">@string/app_author_url</string>
+	<string name="app_translator">rx1310 (Google Translate)</string>
+	<string name="app_translator_url">@string/app_author_url</string>
 	
 	<!-- активности -->
-	<string name="activity_main">Варианты перезагрузки</string>
-	<string name="activity_additionally">Дополнительно</string>
+	<string name="activity_main">Restart options</string>
+	<string name="activity_additionally">Additionally</string>
 	
 	<!-- варианты перезагрузки -->
-	<string name="mng_reboot_into_recovery">Режим восстановления</string>
-	<string name="mng_reboot_into_recovery_desc">Выключение и переход в режим восстановления (recovery mode)</string>
-	<string name="mng_reboot_into_bootloader">Загрузчик</string>
-	<string name="mng_reboot_into_bootloader_desc">Выключение и переход в режим загрузчика (bootloader / fastboot mode)</string>
-	<string name="mng_reboot_system">Система</string>
-	<string name="mng_reboot_system_desc">Выключение и включение устройства (обычная перезагрузка)</string>
-	<string name="mng_reboot_system_soft">Система (без ядра)</string>
-	<string name="mng_reboot_system_soft_desc">Перезагрузка программной части устройства не затрагивая ядро</string>
-	<string name="mng_shutdown_system">Выключить</string>
-	<string name="mng_shutdown_system_desc">Обычное выключение устройства</string>
+	<string name="mng_reboot_into_recovery">Recovery mode</string>
+	<string name="mng_reboot_into_recovery_desc">Turning off and switching to recovery mode </string>
+	<string name="mng_reboot_into_bootloader">Bootloader</string>
+	<string name="mng_reboot_into_bootloader_desc">Disabling and switching to bootloader mode (bootloader / fastboot mode)</string>
+	<string name="mng_reboot_system">System</string>
+	<string name="mng_reboot_system_desc">Turning the device off and on (normal restart)</string>
+	<string name="mng_reboot_system_soft">System (without kernel)</string>
+	<string name="mng_reboot_system_soft_desc">Restarting the device software without affecting the kernel</string>
+	<string name="mng_shutdown_system">Shutdown</string>
+	<string name="mng_shutdown_system_desc">Normal power off the device</string>
 	
 	<!-- quick tiles -->
-	<string name="tile_reboot_into_recovery" translatable="false">Recovery</string>
-	<string name="tile_reboot_into_bootloader" translatable="false">Bootloader</string>
+	<string name="tile_reboot_into_recovery">Recovery</string>
+	<string name="tile_reboot_into_bootloader">Bootloader</string>
 	
 	<!-- сообщения пользователю -->
-	<string name="msg_root_not_available">Для работоспособности программы необходимо получить права суперпользователя (root)</string>
-	<string name="msg_restart_for_apply">Необходимо перезагрузить устройство для применения</string>
-	<string name="msg_hide_icon">Вы действительно хотите скрыть иконку приложения RebootManager из списка установленных приложений в вашем меню?&lt;br&gt;&lt;br&gt;Данное действие нельзя отменить.&lt;br&gt;Для возврата иконки приложения необходимо переустановить RebootManager.&lt;br&gt;&lt;br&gt;&lt;b&gt;Хотите скрыть иконку приложения?&lt;/b&gt;</string>
-	<string name="msg_reboot_system_soft">&lt;b&gt;Система может не загрузиться!&lt;/b&gt;&lt;br&gt;&lt;br&gt;После выполнения перезагрузки некоторые устройства или определенные прошивки могут зависнуть на процессе запуска системы (bootloop), но если удерживать длительное время кнопку «Power» система перезагрузится в штатном режиме.&lt;br&gt;&lt;br&gt;&lt;b&gt;Вы действительно хотите выполнить перезапуск системы на свой страх и риск?&lt;/b&gt;</string>
+	<string name="msg_root_not_available">For the program to work properly, you need to get superuser rights (root)</string>
+	<string name="msg_restart_for_apply">You need to restart your device to apply</string>
+	<string name="msg_hide_icon">Do you really want to hide the RebootManager app icon from the list of installed apps in your menu? &lt;br&gt;&lt;br&gt;This action cannot be undone.&lt;br&gt;To return the app icon, reinstall the RebootManager.&lt;br&gt;&lt;br&gt;&lt;b&gt;Want to hide the app icon?&lt;/b&gt;</string>
+	<string name="msg_reboot_system_soft">&lt;b&gt;The system may not boot!&lt;/b&gt;&lt;br&gt;&lt;br&gt;After performing a reboot, some devices or certain firmware may hang during the system startup process (bootloop), but if you hold the "Power" button for a long time, the system will restart normally.&lt;br&gt;&lt;br&gt;&lt;b&gt;Do You really want to restart the system at your own risk?&lt;/b&gt;</string>
 	
 	<!-- настройки -->
-	<string name="settings">Настройки приложения</string>
-	<string name="setting_hide_icon">Скрыть иконку</string>
-	<string name="setting_hide_icon_desc">Скрытие иконки приложения из меню приложений на рабочем столе</string>
-	<string name="setting_pro_mode">Режим «Pro»</string>
-	<string name="setting_pro_mode_desc">Активация расширенных возможностей приложения</string>
-	<string name="setting_uninstall_app">Удалить приложение</string>
+	<string name="settings">Application settings</string>
+	<string name="setting_hide_icon">Hide icon</string>
+	<string name="setting_hide_icon_desc">Hiding the app icon from the app menu on the desktop</string>
+	<string name="setting_pro_mode">«Pro» mode</string>
+	<string name="setting_pro_mode_desc">Activating advanced app features</string>
+	<string name="setting_uninstall_app">Uninstall app</string>
 	
 	<!-- о программе -->
-	<string name="about">О программе</string>
-	<string name="info_app_version">Версия RebootManager</string>
-	<string name="info_app_author">Автор программы</string>
-	<string name="info_app_translator">Локализатор</string>
-	<string name="info_app_url">Веб-сайт</string>
-	<string name="info_app_url_desc">Официальный веб-сайт RebootManager, где можно скачать обновления, посмотреть исходный код или узнать больше о проекте</string>
-	<string name="info_su">Права суперпользователя</string>
+	<string name="about">About the program</string>
+	<string name="info_app_version">RebootManager version</string>
+	<string name="info_app_author">Dev</string>
+	<string name="info_app_translator">Translator</string>
+	<string name="info_app_url">Website</string>
+	<string name="info_app_url_desc">Official RebootManager website where you can download updates, view source code, or learn more about the project</string>
+	<string name="info_su">SU info</string>
 	
 </resources>
