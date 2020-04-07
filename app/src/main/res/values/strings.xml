@@ -10,12 +10,14 @@
 	<string name="activity_additionally">Дополнительно</string>
 	
 	<!-- варианты перезагрузки -->
-	<string name="mng_reboot_system">Система</string>
-	<string name="mng_reboot_system_desc">Выключение и включение устройства (обычная перезагрузка)</string>
 	<string name="mng_reboot_into_recovery">Режим восстановления</string>
 	<string name="mng_reboot_into_recovery_desc">Выключение и переход в режим восстановления (recovery mode)</string>
 	<string name="mng_reboot_into_bootloader">Загрузчик</string>
 	<string name="mng_reboot_into_bootloader_desc">Выключение и переход в режим загрузчика (bootloader / fastboot mode)</string>
+	<string name="mng_reboot_system">Система</string>
+	<string name="mng_reboot_system_desc">Выключение и включение устройства (обычная перезагрузка)</string>
+	<string name="mng_shutdown_system">Выключить</string>
+	<string name="mng_shutdown_system_desc">Обычное выключение устройства</string>
 	
 	<!-- quick tiles -->
 	<string name="tile_reboot_into_recovery" translatable="false">Recovery</string>

@@ -60,8 +60,8 @@ public class MainActivity extends PreferenceActivity {
 		// перезагрузка в bootloader
 		Preference sysShutdown = new Preference(this);
 		sysShutdown.setKey("sysShutdown");
-		sysShutdown.setTitle(R.string.mng_reboot_into_bootloader);
-		sysShutdown.setSummary(R.string.mng_reboot_into_bootloader_desc);
+		sysShutdown.setTitle(R.string.mng_shutdown_system);
+		sysShutdown.setSummary(R.string.mng_shutdown_system_desc);
 		
 		// проверка наличия root
 		if (!Shell.SU.available()) {
