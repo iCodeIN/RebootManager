@@ -14,11 +14,12 @@ import android.widget.Toast;
 
 public class RebootManager {
 	
+	public static String CMD_SHUTDOWN = "su -c svc power shutdown";
 	public static String CMD_REBOOT_RECOVERY = "su -c svc power reboot recovery";
 	public static String CMD_REBOOT_BOOTLOADER = "su -c svc power reboot bootloader";
-	public static String CMD_SHUTDOWN = "su -c svc power shutdown";
 	public static String CMD_REBOOT_SYS = "su -c svc power reboot";
-	public static String CMD_REBOOT_SYS_SOFT = "setprop ctl.stop zygote";
+	public static String CMD_REBOOT_SYS_SOFT = "setprop ctl.restart zygote";
+	//public static String CMD_SAFE_MODE = "setprop persist.sys.safemode 1";
 	public static String TEST_CMD_FAKE_BATTERY_LOW = "am broadcast -a android.intent.action.BATTERY_LOW";
 	
 	public static String appVersionInfo(Context c) {
