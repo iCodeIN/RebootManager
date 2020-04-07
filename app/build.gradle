@@ -9,11 +9,11 @@ android {
         minSdkVersion 14
         targetSdkVersion 29
         versionCode 200407
-        versionName "[A] 8"
+        versionName "8"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
