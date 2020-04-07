@@ -62,8 +62,9 @@ public class AdditionallyActivity extends PreferenceActivity {
 		uninstallApp.setTitle(R.string.setting_uninstall_app);
 		
 		Preference appVersion = new Preference(this);
+		appVersion.setKey("ABOUT_APP_VERSION");
 		appVersion.setTitle(R.string.info_app_version);
-		appVersion.setSummary(RebootManager.appVersion(this));
+		appVersion.setSummary(RebootManager.appVersionInfo(this));
 		
 		Preference appAuthor = new Preference(this);
 		appAuthor.setKey("ABOUT_APP_AUTHOR_URL");
@@ -96,7 +97,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 		p.addPreference(appVersion);
 		p.addPreference(appAuthor);
 		p.addPreference(appTranslator);
-		p.addPreference(appUrl);
+		//p.addPreference(appUrl);
 		p.addPreference(sysSuInfo);
 		
 	}
@@ -116,6 +117,10 @@ public class AdditionallyActivity extends PreferenceActivity {
 				startActivity(i);
 				break;
 				
+			case "ABOUT_APP_VERSION":
+				RebootManager.showToast( "o1310 " + ("\ud83d\ude4c"), this);
+				break;
+				
 			case "ABOUT_APP_AUTHOR_URL":
 				RebootManager.openUrl(getString(R.string.app_author_url), this);
 				break;
@@ -125,7 +130,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 				break;
 				
 			case "ABOUT_APP_URL":
-				RebootManager.openUrl("https://vk.com", this);
+				RebootManager.openUrl("https://o1310.github.io", this);
 				break;
 
 		}

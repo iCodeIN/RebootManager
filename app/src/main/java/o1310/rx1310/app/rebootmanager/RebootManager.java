@@ -21,7 +21,7 @@ public class RebootManager {
 	public static String CMD_REBOOT_SYS_SOFT = "setprop ctl.stop zygote";
 	public static String TEST_CMD_FAKE_BATTERY_LOW = "am broadcast -a android.intent.action.BATTERY_LOW";
 	
-	public static String appVersion(Context c) {
+	public static String appVersionInfo(Context c) {
 		
 		String s, a;
 		int v;
