@@ -13,14 +13,21 @@ import android.preference.PreferenceScreen;
 import eu.chainfire.libsuperuser.Shell;
 import o1310.rx1310.app.rebootmanager.R;
 import o1310.rx1310.app.rebootmanager.RebootManager;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
-public class MainActivity extends PreferenceActivity
- {
+public class MainActivity extends PreferenceActivity {
+	
+	SharedPreferences s;
 	
 	protected void onCreate(Bundle b) {
 		super.onCreate(b);
 		
 		setTitle(R.string.activity_main);
+		
+		s = PreferenceManager.getDefaultSharedPreferences(this);
+		
+		Boolean proMode = s.getBoolean("SETTING_PRO_MODE", false);
 		
 		// создаем экран
 		PreferenceScreen p = getPreferenceManager().createPreferenceScreen(this);
@@ -50,14 +57,24 @@ public class MainActivity extends PreferenceActivity
 		rebootIntoBootloader.setTitle(R.string.mng_reboot_into_bootloader);
 		rebootIntoBootloader.setSummary(R.string.mng_reboot_into_bootloader_desc);
 		
+		// перезагрузка в bootloader
+		Preference sysShutdown = new Preference(this);
+		sysShutdown.setKey("sysShutdown");
+		sysShutdown.setTitle(R.string.mng_reboot_into_bootloader);
+		sysShutdown.setSummary(R.string.mng_reboot_into_bootloader_desc);
+		
 		// проверка наличия root
 		if (!Shell.SU.available()) {
 			setTitle(R.string.app_name);
 			p.addPreference(rootNotAvailableMsg);
 		} else {
-			p.addPreference(rebootSystem);
 			p.addPreference(rebootIntoRecovery);
 			p.addPreference(rebootIntoBootloader);
+			// если включен режим "Pro"
+			if (proMode) {
+				p.addPreference(rebootSystem);
+				p.addPreference(sysShutdown);
+			}
 		}
 		
 	}
@@ -76,17 +93,25 @@ public class MainActivity extends PreferenceActivity
 		
 		switch (p.getKey()) {
 			
+			case "rebootIntoRecovery":
+				Shell.SU.run(RebootManager.CMD_REBOOT_RECOVERY);
+				break;
+
+			case "rebootIntoBootloader":
+				Shell.SU.run(RebootManager.CMD_REBOOT_BOOTLOADER);
+				break;
+			
 			case "rebootSystem":
 				Shell.SU.run(RebootManager.CMD_REBOOT_SYS);
 				break;
 				
-			case "rebootIntoRecovery":
-				Shell.SU.run(RebootManager.CMD_REBOOT_RECOVERY);
+			case "sysShutdown":
+				Shell.SU.run(RebootManager.CMD_SHUTDOWN);
 				break;
-				
-			case "rebootIntoBootloader":
+
+			/*case "rebootIntoBootloader":
 				Shell.SU.run(RebootManager.CMD_REBOOT_BOOTLOADER);
-				break;
+				break;*/
 			
 		}
 		

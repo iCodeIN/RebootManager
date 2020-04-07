@@ -23,14 +23,20 @@ import android.content.Intent;
 import android.net.Uri;
 import eu.chainfire.libsuperuser.Shell;
 import android.preference.SwitchPreference;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 public class AdditionallyActivity extends PreferenceActivity {
 
+	SharedPreferences s;
+	
 	protected void onCreate(Bundle b) {
 		super.onCreate(b);
 
 		setTitle(R.string.activity_additionally);
 
+		s = PreferenceManager.getDefaultSharedPreferences(this);
+		
 		// создаем экран
 		PreferenceScreen p = getPreferenceManager().createPreferenceScreen(this);
 		setPreferenceScreen(p);
@@ -47,7 +53,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 		hideIcon.setSummary(R.string.setting_hide_icon_desc);
 		
 		SwitchPreference proMode = new SwitchPreference(this);
-		proMode.setKey("");
+		proMode.setKey("SETTING_PRO_MODE");
 		proMode.setTitle(R.string.setting_pro_mode);
 		proMode.setSummary(R.string.setting_pro_mode_desc);
 		
