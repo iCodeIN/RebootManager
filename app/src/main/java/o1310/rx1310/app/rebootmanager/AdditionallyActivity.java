@@ -25,6 +25,7 @@ import eu.chainfire.libsuperuser.Shell;
 import android.preference.SwitchPreference;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import eu.chainfire.libsuperuser.BuildConfig;
 
 public class AdditionallyActivity extends PreferenceActivity {
 
@@ -172,7 +173,9 @@ public class AdditionallyActivity extends PreferenceActivity {
 	String suInfo() {
 		return "SU Available: " + Shell.SU.available() + 
 			   "\nSELinuxEnforcing: " + Shell.SU.isSELinuxEnforcing() +
-			   "\nVersion: " + Shell.SU.version(true) + " (" + Shell.SU.version(false) + ")";
+			   "\nVersion: " + Shell.SU.version(true) + " (" + Shell.SU.version(false) + ")" + 
+			   "\nLib: " + BuildConfig.APPLICATION_ID;
+			
 	}
 	
 }
