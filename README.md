@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://o1310.github.io">
-    <img src="https://github.com/o1310/RebootManager/blob/master/app-logo.png?raw=true" alt="RebootManager logo" width="60%">
+    <img src="https://github.com/o1310/RebootManager/blob/master/app-logo.png?raw=true" alt="RebootManager logo" width="50%">
   </a>
 </p>
 
