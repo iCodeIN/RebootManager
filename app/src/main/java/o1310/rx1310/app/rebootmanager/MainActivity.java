@@ -74,6 +74,12 @@ public class MainActivity extends PreferenceActivity {
 		sysShutdown.setTitle(R.string.mng_shutdown_system);
 		sysShutdown.setSummary(R.string.mng_shutdown_system_desc);
 		
+		// отключение системы
+		Preference safeMode = new Preference(this);
+		safeMode.setKey("safeMode");
+		safeMode.setTitle(R.string.mng_safe_mode);
+		safeMode.setSummary(R.string.mng_safe_mode_desc);
+		
 		// проверка наличия root
 		if (!Shell.SU.available()) {
 			setTitle(R.string.app_name);
@@ -85,6 +91,7 @@ public class MainActivity extends PreferenceActivity {
 			if (proMode) {
 				p.addPreference(rebootSystem);
 				p.addPreference(rebootSystemSoft);
+				p.addPreference(safeMode);
 				p.addPreference(sysShutdown);
 			}
 		}
@@ -98,8 +105,6 @@ public class MainActivity extends PreferenceActivity {
 		android.os.Process.killProcess(android.os.Process.myPid());
 	}
 
-	
-	
 	// обработка нажатий на пункты
 	public boolean onPreferenceTreeClick(PreferenceScreen s, Preference p) {
 		
@@ -121,10 +126,14 @@ public class MainActivity extends PreferenceActivity {
 				rebootSystemSoftDlg();
 				break;
 				
+			case "safeMode":
+				Shell.SU.run(RebootManager.CMD_SAFE_MODE);
+				break;
+				
 			case "sysShutdown":
 				Shell.SU.run(RebootManager.CMD_SHUTDOWN);
 				break;
-			
+				
 		}
 		
 		return super.onPreferenceTreeClick(s, p);
