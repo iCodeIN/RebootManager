@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- имя или ник локализатора -->
+	<string name="app_translator">rx1310 (Yandex Translate)</string>
+	<string name="app_translator_url">@string/app_author_url</string>
+
+	<!-- активности -->
+	<string name="activity_main">Варіанти перезавантаження</string>
+	<string name="activity_additionally">Додатково</string>
+
+	<!-- варианты перезагрузки -->
+	<string name="mng_reboot_into_recovery">Режим відновлення</string>
+	<string name="mng_reboot_into_recovery_desc">Вимкнення і перехід в режим відновлення (recovery mode)</string>
+	<!--string name="mng_reboot_into_bootloader"></string-->
+	<string name="mng_reboot_into_bootloader_desc">Вимкнення і перехід в режим завантажувача (bootloader / fastboot mode)</string>
+	<string name="mng_reboot_system">Система</string>
+	<string name="mng_reboot_system_desc">Вимкнення і включення пристрою (звичайна перезавантаження)</string>
+	<string name="mng_reboot_system_soft">Система (без ядра)</string>
+	<string name="mng_reboot_system_soft_desc">Перезавантаження програмної частини пристрою, не зачіпаючи ядро</string>
+	<string name="mng_safe_mode">Безпечний режим</string>
+	<string name="mng_safe_mode_desc">Перезавантаження програмної частини і перехід в Безпечний режим (safe_mode)</string>
+	<string name="mng_shutdown_system">Вимкнути</string>
+	<string name="mng_shutdown_system_desc">Звичайне вимикання пристрою</string>
+
+	<!-- сообщения пользователю -->
+	<string name="msg_root_not_available">Для працездатності програми необхідно отримати права суперкористувача (root)</string>
+	<string name="msg_restart_for_apply">Необхідно перезавантажити пристрій для застосування</string>
+	<string name="msg_hide_icon">Ви дійсно хочете приховати іконку програми RebootManager зі списку встановлених додатків у вашому меню?&lt;br&gt;&lt;br&gt; Цю дію не можна скасувати.&lt;br&gt;Для повернення іконки програми необхідно перевстановити RebootManager.&lt;br&gt;&lt;br&gt;&lt;b&gt;Хочете приховати іконку програми?&lt;/b&gt;</string>
+	<string name="msg_reboot_system_soft">&lt;b&gt;Система може не завантажитися!&lt;/b&gt;&lt;br&gt;&lt;br&gt;Після виконання перезавантаження деякі пристрої або певні прошивки можуть зависнути на процесі запуску системи (bootloop), але якщо утримувати тривалий час кнопку «Power» система перезавантажиться в штатному режимі.&lt;br&gt;&lt;br&gt;&lt;b&gt;Ви дійсно хочете виконати перезапуск системи на свій страх і ризик?&lt;/b&gt;</string>
+
+	<!-- настройки -->
+	<string name="settings">Налаштування</string>
+	<string name="setting_hide_icon">Приховати іконку</string>
+	<string name="setting_hide_icon_desc">Приховування іконки програми з меню додатків на робочому столі</string>
+	<string name="setting_pro_mode">Режим «Pro»</string>
+	<string name="setting_pro_mode_desc">Активація розширених можливостей програми</string>
+	<string name="setting_uninstall_app">Видалити додаток</string>
+
+	<!-- о программе -->
+	<string name="about">Про програму</string>
+	<string name="info_app_version">Версія RebootManager</string>
+	<string name="info_app_author">Автор програми</string>
+	<string name="info_app_translator">Локалізатор</string>
+	<string name="info_app_url">Веб-сайт</string>
+	<string name="info_app_url_desc">Офіційний веб-сайт RebootManager, де можна завантажити оновлення, подивитися вихідний код або дізнатися більше про проект</string>
+	<string name="info_su">Права суперкористувача</string>
+
+</resources>
