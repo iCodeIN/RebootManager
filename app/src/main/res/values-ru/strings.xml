@@ -17,10 +17,12 @@
 	<string name="mng_reboot_system">Система</string>
 	<string name="mng_reboot_system_desc">Выключение и включение устройства (обычная перезагрузка)</string>
 	<string name="mng_reboot_system_soft">Система (без ядра)</string>
-	<string name="mng_reboot_system_soft_desc">Перезагрузка программной части устройства не затрагивая ядро</string>
+	<string name="mng_reboot_system_soft_desc">Перезагрузка программной части устройства, не затрагивая ядро</string>
+	<string name="mng_safe_mode">Безопасный режим</string>
+	<string name="mng_safe_mode_desc">Перезагрузка программной части и переход в безопасный режим (safe_mode)</string>
 	<string name="mng_shutdown_system">Выключить</string>
 	<string name="mng_shutdown_system_desc">Обычное выключение устройства</string>
-
+	
 	<!-- quick tiles -->
 	<string name="tile_reboot_into_recovery">Recovery</string>
 	<string name="tile_reboot_into_bootloader">Bootloader</string>
