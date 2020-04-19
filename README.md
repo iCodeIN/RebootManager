@@ -13,7 +13,6 @@
 
 ### Благодарности
 * [Chainfire](https://github.com/Chainfire/libsuperuser) - за libsuperuser
-* [MicroUI](https://github.com/rx1310/MicroUI) - позаимствовано немного кода из прародителя CoreX
 
 ### Авторы
 * [rx1310](https://github.com/rx1310) - создание и идея проекта
