@@ -119,7 +119,8 @@ public class AdditionallyActivity extends PreferenceActivity {
 				break;
 				
 			case "ABOUT_APP_VERSION":
-				RebootManager.showToast( "o1310 " + ("\ud83d\ude4c"), this);
+				RebootManager.showToast( "made with " + ("♥️") + " by rx1310 (in o1310)", this);
+				RebootManager.openUrl("https://github.com/o1310/RebootManager", this);
 				break;
 				
 			case "ABOUT_APP_AUTHOR_URL":

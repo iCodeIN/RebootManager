@@ -20,6 +20,7 @@ import android.text.Html;
 import eu.chainfire.libsuperuser.Shell;
 import o1310.rx1310.app.rebootmanager.R;
 import o1310.rx1310.app.rebootmanager.RebootManager;
+import android.content.Intent;
 
 public class MainActivity extends PreferenceActivity {
 	
@@ -43,6 +44,11 @@ public class MainActivity extends PreferenceActivity {
 		rootNotAvailableMsg.setEnabled(false);
 		rootNotAvailableMsg.setSelectable(false);
 		rootNotAvailableMsg.setSummary(R.string.msg_root_not_available);
+		
+		// пункт для перехода в "Настройки"
+		Preference goToAdditionallyActivity = new Preference(this);
+		goToAdditionallyActivity.setKey("goToAdditionallyActivity");
+		goToAdditionallyActivity.setSummary(R.string.activity_additionally);
 		
 		// перезагрузка в режим recovery
 		Preference rebootIntoRecovery = new Preference(this);
@@ -96,6 +102,8 @@ public class MainActivity extends PreferenceActivity {
 			}
 		}
 		
+		p.addPreference(goToAdditionallyActivity);
+		
 	}
 
 	@Override
@@ -109,6 +117,10 @@ public class MainActivity extends PreferenceActivity {
 	public boolean onPreferenceTreeClick(PreferenceScreen s, Preference p) {
 		
 		switch (p.getKey()) {
+			
+			case "goToAdditionallyActivity":
+				startActivity(new Intent(this, AdditionallyActivity.class));
+				break;
 			
 			case "rebootIntoRecovery":
 				Shell.SU.run(RebootManager.CMD_REBOOT_RECOVERY);
