@@ -5,6 +5,7 @@
  */
 
 package o1310.rx1310.app.rebootmanager;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -14,39 +15,46 @@ import android.widget.Toast;
 
 public class RebootManager {
 	
-	public static String CMD_SHUTDOWN = "su -c svc power shutdown";
-	public static String CMD_REBOOT_RECOVERY = "su -c svc power reboot recovery";
-	public static String CMD_REBOOT_BOOTLOADER = "su -c svc power reboot bootloader";
-	public static String CMD_REBOOT_SYS = "su -c svc power reboot";
-	public static String CMD_REBOOT_SYS_SOFT = "setprop ctl.restart zygote";
-	public static String CMD_SAFE_MODE = "setprop persist.sys.safemode 1 && setprop ctl.restart zygote";
-	public static String TEST_CMD_FAKE_BATTERY_LOW = "am broadcast -a android.intent.action.BATTERY_LOW";
+	public static String CMD_SHUTDOWN = "su -c svc power shutdown"; // команда для выключения устройства
+	public static String CMD_REBOOT_RECOVERY = "su -c svc power reboot recovery"; // команда для перехода в recovery
+	public static String CMD_REBOOT_BOOTLOADER = "su -c svc power reboot bootloader"; // команда для перехода в bootloader
+	public static String CMD_REBOOT_SYS = "su -c svc power reboot"; // команда для перезапуска системы
+	public static String CMD_REBOOT_SYS_SOFT = "setprop ctl.restart zygote"; // команда для soft-reboot
+	public static String CMD_SAFE_MODE = "setprop persist.sys.safemode 1 && setprop ctl.restart zygote"; // команда для перехода в безопасный режим
+	//public static String TEST_CMD_FAKE_BATTERY_LOW = "am broadcast -a android.intent.action.BATTERY_LOW";
 	
-	public static String appVersionInfo(Context c) {
+	// версия приложения
+	public static String appVersion(Context c) {
 		
+		// переменные
 		String s, a;
 		int v;
 		
+		// регистрируем PackageManager
 		PackageManager m = c.getPackageManager();
 		
 		try {
+			// регистрируем PackageInfo
 			PackageInfo i = m.getPackageInfo(c.getPackageName(), 0);
-			s = i.versionName;
-			v = i.versionCode;
-			a = s + "." + v;
+			s = i.versionName; // Получаем название версии
+			v = i.versionCode; // Получаем код версии
+			a = s + "." + v;   // Объединяем название и код версии для "вида"
 		} catch(PackageManager.NameNotFoundException e) {
+			// в случае ошибки вернем "error(String.appVersion)"
 			e.printStackTrace();
-			a = "error";
+			a = "error(String.appVersion)";
 		}
 		
-		return a;
+		return a; // вернем версию в формате НАЗВАНИЕ.КОД (напр.: 1.200915)
 		
 	}
 	
+	// вызов Toast
 	public static void showToast(String s, Context c) {
 		Toast.makeText(c, s, Toast.LENGTH_LONG).show();
 	}
 	
+	// переход по ссылкам
 	public static void openUrl(String url, Context c) {
 		c.startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse(url)));
 	}
