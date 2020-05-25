@@ -23,6 +23,10 @@
 	<string name="mng_shutdown_system">Вимкнути</string>
 	<string name="mng_shutdown_system_desc">Звичайне вимикання пристрою</string>
 
+	<!-- quick tiles -->
+	<string name="tile_reboot_into_system_soft">Система (без ядра)</string>
+	<string name="tile_reboot_into_safe_mode">Безпечний режим</string>
+	
 	<!-- сообщения пользователю -->
 	<string name="msg_root_not_available">Для працездатності програми необхідно отримати права суперкористувача (root)</string>
 	<string name="msg_restart_for_apply">Необхідно перезавантажити пристрій для застосування</string>
