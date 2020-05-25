@@ -26,7 +26,9 @@
 	<!-- quick tiles -->
 	<string name="tile_reboot_into_recovery">Recovery</string>
 	<string name="tile_reboot_into_bootloader">Bootloader</string>
-	
+	<string name="tile_reboot_into_system_soft">System (without kernel)</string>
+	<string name="tile_reboot_into_safe_mode">Safe mode</string>
+
 	<!-- сообщения пользователю -->
 	<string name="msg_root_not_available">For the program to work properly, you need to get superuser rights (root)</string>
 	<string name="msg_restart_for_apply">You need to restart your device to apply</string>
