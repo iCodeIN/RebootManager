@@ -15,13 +15,10 @@ import android.widget.Toast;
 
 public class RebootManager {
 	
-	public static String CMD_SHUTDOWN = "su -c svc power shutdown"; // команда для выключения устройства
 	public static String CMD_REBOOT_RECOVERY = "su -c svc power reboot recovery"; // команда для перехода в recovery
 	public static String CMD_REBOOT_BOOTLOADER = "su -c svc power reboot bootloader"; // команда для перехода в bootloader
-	public static String CMD_REBOOT_SYS = "su -c svc power reboot"; // команда для перезапуска системы
 	public static String CMD_REBOOT_SYS_SOFT = "setprop ctl.restart zygote"; // команда для soft-reboot
 	public static String CMD_SAFE_MODE = "setprop persist.sys.safemode 1 && setprop ctl.restart zygote"; // команда для перехода в безопасный режим
-	//public static String TEST_CMD_FAKE_BATTERY_LOW = "am broadcast -a android.intent.action.BATTERY_LOW";
 	
 	// версия приложения
 	public static String appVersion(Context c) {
