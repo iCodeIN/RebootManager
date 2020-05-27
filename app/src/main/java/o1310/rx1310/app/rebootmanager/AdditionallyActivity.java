@@ -24,7 +24,6 @@ import android.preference.SwitchPreference;
 import android.text.Html;
 import eu.chainfire.libsuperuser.Shell;
 import o1310.rx1310.app.rebootmanager.AdditionallyActivity;
-import o1310.rx1310.app.rebootmanager.MainActivity;
 import o1310.rx1310.app.rebootmanager.R;
 import o1310.rx1310.app.rebootmanager.RebootManager;
 
@@ -45,26 +44,6 @@ public class AdditionallyActivity extends PreferenceActivity {
 		PreferenceScreen p = getPreferenceManager().createPreferenceScreen(this);
 		setPreferenceScreen(p);
 
-		// категория "Настройки"
-		PreferenceCategory ctgSettings = new PreferenceCategory(this);
-		ctgSettings.setTitle(R.string.settings);
-		
-		// категория "О программе"
-		PreferenceCategory ctgAbout = new PreferenceCategory(this);
-		ctgAbout.setTitle(R.string.about);
-		
-		// настройка "Скрыть иконку"
-		Preference hideIcon = new Preference(this);
-		hideIcon.setKey("SETTING_HIDE_ICON");
-		hideIcon.setTitle(R.string.setting_hide_icon);
-		hideIcon.setSummary(R.string.setting_hide_icon_desc);
-		
-		// переключатель Pro-режима
-		SwitchPreference proMode = new SwitchPreference(this);
-		proMode.setKey("SETTING_PRO_MODE");
-		proMode.setTitle(R.string.setting_pro_mode);
-		proMode.setSummary(R.string.setting_pro_mode_desc);
-		
 		// пункт для удаления приложения
 		Preference uninstallApp = new Preference(this);
 		uninstallApp.setKey("SETTING_UNINSTALL_APP");
@@ -74,7 +53,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 		Preference appVersion = new Preference(this);
 		appVersion.setKey("ABOUT_APP_VERSION");
 		appVersion.setTitle(R.string.info_app_version);
-		appVersion.setSummary(RebootManager.appVersion(this) + " (extended)");
+		appVersion.setSummary(RebootManager.appVersion(this) + " (lite)");
 		
 		// пункт с именем автора (rx1310)
 		Preference appAuthor = new Preference(this);
@@ -100,29 +79,12 @@ public class AdditionallyActivity extends PreferenceActivity {
 		sysSuInfo.setSummary(suInfo());
 		sysSuInfo.setEnabled(false);
 		
-		// добавление настроек
-		p.addPreference(ctgSettings);
-		
-		/* Если у пользователя версия AndroidSDK равна
-		 * или больше 25 (Android N), то пункт "Скрыть иконку"
-		 * будет отображен. Почему? Потому что QuickTiles, которые заменяют
-		 * основной интерфейс, ввели именно в этой версии Android.
-		 * Если скрыть иконку в системе, где быстрые тайлы не поддерживаются,
-		 * то вызов функций RebootManager становится невозможным.
-		 */
-		if (Build.VERSION.SDK_INT >= 25) {
-			p.addPreference(hideIcon);
-		} 
-		
-		p.addPreference(proMode);
-		p.addPreference(uninstallApp);
-		
-		p.addPreference(ctgAbout);
 		p.addPreference(appVersion);
 		p.addPreference(appAuthor);
 		p.addPreference(appTranslator);
 		//p.addPreference(appUrl);
 		p.addPreference(sysSuInfo);
+		p.addPreference(uninstallApp);
 		
 	}
 
@@ -131,10 +93,6 @@ public class AdditionallyActivity extends PreferenceActivity {
 
 		switch (p.getKey()) {
 
-			case "SETTING_HIDE_ICON":
-				hideIconDlg(); // вызываем диалог
-				break;
-				
 			case "SETTING_UNINSTALL_APP":
 				Intent i = new Intent(Intent.ACTION_DELETE);
 				i.setData(Uri.parse("package:" + getPackageName()));
@@ -162,35 +120,6 @@ public class AdditionallyActivity extends PreferenceActivity {
 
 		return super.onPreferenceTreeClick(s, p);
 
-	}
-	
-	// скрытие иконки
-	void hideIconDlg(){
-		
-		// создаем диалог
-		AlertDialog.Builder b = new AlertDialog.Builder(this);
-		
-		b.setTitle(R.string.setting_hide_icon); // заголовок
-		b.setMessage(Html.fromHtml(getString(R.string.msg_hide_icon))); // сообщение (+ задействованы теги html)
-		b.setCancelable(false); // отключаем скрытие окна по нажатию за границы окна
-		b.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
-			public void onClick(DialogInterface d, int i) {
-				ComponentName n = new ComponentName(AdditionallyActivity.this, MainActivity.class); // скрываем иконку
-				PackageManager m = getPackageManager();
-				m.setComponentEnabledSetting(n, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-				RebootManager.showToast(getString(R.string.msg_restart_for_apply), getApplicationContext()); // отображаем toast уведомление
-			}
-		});
-		b.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Нет"
-			public void onClick(DialogInterface d, int i) {
-				d.cancel(); // закрывает диалог
-			}
-		});
-		
-		AlertDialog a = b.create(); // создаем диалог
-	
-		a.show(); // отображаем диалог
-		
 	}
 	
 	// информация о SU
