@@ -31,21 +31,6 @@
 			android:excludeFromRecents="true" 
 			android:finishOnCloseSystemDialogs="true" 
 			android:launchMode="singleInstance" 
-			android:name=".MainActivity" 
-			android:noHistory="true">
-            <intent-filter>
-				<action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-			<meta-data 
-				android:name="android.app.shortcuts" 
-				android:resource="@xml/shortcuts"/>
-        </activity>
-		
-		<activity 
-			android:excludeFromRecents="true" 
-			android:finishOnCloseSystemDialogs="true" 
-			android:launchMode="singleInstance" 
 			android:name=".AdditionallyActivity" 
 			android:noHistory="true">
             <intent-filter>
