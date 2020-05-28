@@ -59,12 +59,6 @@ public class AdditionallyActivity extends PreferenceActivity {
 		hideIcon.setTitle(R.string.setting_hide_icon);
 		hideIcon.setSummary(R.string.setting_hide_icon_desc);
 		
-		// переключатель Pro-режима
-		SwitchPreference proMode = new SwitchPreference(this);
-		proMode.setKey("SETTING_PRO_MODE");
-		proMode.setTitle(R.string.setting_pro_mode);
-		proMode.setSummary(R.string.setting_pro_mode_desc);
-		
 		// пункт для удаления приложения
 		Preference uninstallApp = new Preference(this);
 		uninstallApp.setKey("SETTING_UNINSTALL_APP");
@@ -114,7 +108,6 @@ public class AdditionallyActivity extends PreferenceActivity {
 			p.addPreference(hideIcon);
 		} 
 		
-		p.addPreference(proMode);
 		p.addPreference(uninstallApp);
 		
 		p.addPreference(ctgAbout);
