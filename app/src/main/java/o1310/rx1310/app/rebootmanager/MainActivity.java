@@ -65,30 +65,6 @@ public class MainActivity extends PreferenceActivity {
 		rebootIntoBootloader.setTitle(R.string.mng_reboot_into_bootloader);
 		rebootIntoBootloader.setSummary(R.string.mng_reboot_into_bootloader_desc);
 		
-		// перезагрузка системы
-		Preference rebootSystem = new Preference(this);
-		rebootSystem.setKey("rebootSystem");
-		rebootSystem.setTitle(R.string.mng_reboot_system);
-		rebootSystem.setSummary(R.string.mng_reboot_system_desc);
-		
-		// перезагрузка системы (без ядра)
-		Preference rebootSystemSoft = new Preference(this);
-		rebootSystemSoft.setKey("rebootSystemSoft");
-		rebootSystemSoft.setTitle(R.string.mng_reboot_system_soft);
-		rebootSystemSoft.setSummary(R.string.mng_reboot_system_soft_desc);
-		
-		// отключение системы
-		Preference sysShutdown = new Preference(this);
-		sysShutdown.setKey("sysShutdown");
-		sysShutdown.setTitle(R.string.mng_shutdown_system);
-		sysShutdown.setSummary(R.string.mng_shutdown_system_desc);
-		
-		// отключение системы
-		Preference safeMode = new Preference(this);
-		safeMode.setKey("safeMode");
-		safeMode.setTitle(R.string.mng_safe_mode);
-		safeMode.setSummary(R.string.mng_safe_mode_desc);
-		
 		// проверка наличия root
 		if (!Shell.SU.available()) {
 			// если рут доступа нет
@@ -98,13 +74,6 @@ public class MainActivity extends PreferenceActivity {
 			// если рут доступ есть
 			p.addPreference(rebootIntoRecovery);
 			p.addPreference(rebootIntoBootloader);
-			// если включен режим "Pro"
-			if (proMode) {
-				p.addPreference(rebootSystem);
-				p.addPreference(rebootSystemSoft);
-				p.addPreference(safeMode);
-				p.addPreference(sysShutdown);
-			}
 		}
 		
 		p.addPreference(goToAdditionallyActivity); // добавляем в конце пункт для перехода в меню "Дополнительно"
@@ -138,55 +107,10 @@ public class MainActivity extends PreferenceActivity {
 				Shell.SU.run(RebootManager.CMD_REBOOT_BOOTLOADER); // выполнение команды
 				break;
 			
-			// перезапуск системы
-			case "rebootSystem":
-				Shell.SU.run(RebootManager.CMD_REBOOT_SYS); // выполнение команды
-				break;
-				
-			// быстрая перезагрузка системы
-			case "rebootSystemSoft":
-				rebootSystemSoftDlg(); // вызов диалога
-				break;
-				
-			// переход в безопасный режим
-			case "safeMode":
-				Shell.SU.run(RebootManager.CMD_SAFE_MODE); // выполнение команды
-				break;
-				
-			// выключение устройства
-			case "sysShutdown":
-				Shell.SU.run(RebootManager.CMD_SHUTDOWN); // выполнение команды
-				break;
-				
 		}
 		
 		return super.onPreferenceTreeClick(s, p);
 		
-	}
-	
-	// диалог для SoftReboot с предупреждением
-	void rebootSystemSoftDlg(){
-
-		// создаем билдер
-		AlertDialog.Builder b = new AlertDialog.Builder(this);
-
-		b.setTitle(R.string.app_name); // заголовок
-		b.setMessage(Html.fromHtml(getString(R.string.msg_reboot_system_soft))); // сообщение (+ задействованы теги html)
-		b.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
-				public void onClick(DialogInterface d, int i) {
-					Shell.SU.run(RebootManager.CMD_REBOOT_SYS_SOFT); // выполняем перезапуск
-				}
-			});
-		b.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Нет"
-				public void onClick(DialogInterface d, int i) {
-					d.cancel(); // закрывает диалог
-				}
-			});
-
-		AlertDialog a = b.create(); // создаем диалог
-
-		a.show(); // отображаем диалог
-
 	}
 	
 }
