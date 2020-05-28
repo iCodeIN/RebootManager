@@ -14,14 +14,6 @@
 	<string name="mng_reboot_into_recovery_desc">Выключение и переход в режим восстановления (recovery mode)</string>
 	<string name="mng_reboot_into_bootloader">Загрузчик</string>
 	<string name="mng_reboot_into_bootloader_desc">Выключение и переход в режим загрузчика (bootloader / fastboot mode)</string>
-	<string name="mng_reboot_system">Система</string>
-	<string name="mng_reboot_system_desc">Выключение и включение устройства (обычная перезагрузка)</string>
-	<string name="mng_reboot_system_soft">Система (без ядра)</string>
-	<string name="mng_reboot_system_soft_desc">Перезагрузка программной части устройства, не затрагивая ядро</string>
-	<string name="mng_safe_mode">Безопасный режим</string>
-	<string name="mng_safe_mode_desc">Перезагрузка программной части и переход в безопасный режим (safe_mode)</string>
-	<string name="mng_shutdown_system">Выключить</string>
-	<string name="mng_shutdown_system_desc">Обычное выключение устройства</string>
 	
 	<!-- quick tiles -->
 	<string name="tile_reboot_into_recovery">Recovery</string>
@@ -37,8 +29,6 @@
 	<string name="settings">Настройки приложения</string>
 	<string name="setting_hide_icon">Скрыть иконку</string>
 	<string name="setting_hide_icon_desc">Скрытие иконки приложения из меню приложений на рабочем столе</string>
-	<string name="setting_pro_mode">Режим «Pro»</string>
-	<string name="setting_pro_mode_desc">Активация расширенных возможностей приложения</string>
 	<string name="setting_uninstall_app">Удалить приложение</string>
 
 	<!-- о программе -->
