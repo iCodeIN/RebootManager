@@ -30,6 +30,9 @@
 	<string name="setting_hide_icon">Hide icon</string>
 	<string name="setting_hide_icon_desc">Hiding the app icon from the app menu on the desktop</string>
 	<string name="setting_uninstall_app">Uninstall app</string>
+	<string name="setting_assistantmode">AssistantMode</string>
+	<string name="setting_assistantmode_desc">Ability to launch RebootManager instead of Google Assistant</string>
+	<string name="setting_assistantmode_guides">Open the «Assist app» section and select RebootManager</string>
 	
 	<!-- о программе -->
 	<string name="about">About the program</string>

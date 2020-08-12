@@ -64,6 +64,12 @@ public class AdditionallyActivity extends PreferenceActivity {
 		uninstallApp.setKey("SETTING_UNINSTALL_APP");
 		uninstallApp.setTitle(R.string.setting_uninstall_app);
 		
+		// пункт для настройки AssistantMode
+		Preference setAssistantMode = new Preference(this);
+		setAssistantMode.setKey("SETTING_ASSISTANTMODE");
+		setAssistantMode.setTitle(R.string.setting_assistantmode);
+		setAssistantMode.setSummary(R.string.setting_assistantmode_desc);
+		
 		// пункт с версией приложения
 		Preference appVersion = new Preference(this);
 		appVersion.setKey("ABOUT_APP_VERSION");
@@ -108,6 +114,10 @@ public class AdditionallyActivity extends PreferenceActivity {
 			p.addPreference(hideIcon);
 		} 
 		
+		if (Build.VERSION.SDK_INT >= 23) {
+			p.addPreference(setAssistantMode);
+		}
+		
 		p.addPreference(uninstallApp);
 		
 		p.addPreference(ctgAbout);
@@ -128,6 +138,11 @@ public class AdditionallyActivity extends PreferenceActivity {
 				hideIconDlg(); // вызываем диалог
 				break;
 				
+			case "SETTING_ASSISTANTMODE":
+				startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
+				RebootManager.showToast(getString(R.string.setting_assistantmode_guides), this);
+				break;
+				
 			case "SETTING_UNINSTALL_APP":
 				Intent i = new Intent(Intent.ACTION_DELETE);
 				i.setData(Uri.parse("package:" + getPackageName()));
@@ -135,7 +150,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 				break;
 				
 			case "ABOUT_APP_VERSION":
-				RebootManager.showToast( "made with " + ("♥️") + " by rx1310 (in o1310)", this);
+				RebootManager.showToast("made with " + ("♥️") + " by rx1310 (in o1310)", this);
 				RebootManager.openUrl("https://github.com/o1310/RebootManager", this);
 				break;
 				
