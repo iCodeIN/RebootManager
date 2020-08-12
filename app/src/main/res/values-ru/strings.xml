@@ -30,7 +30,9 @@
 	<string name="setting_hide_icon">Скрыть иконку</string>
 	<string name="setting_hide_icon_desc">Скрытие иконки приложения из меню приложений на рабочем столе</string>
 	<string name="setting_uninstall_app">Удалить приложение</string>
-
+	<string name="setting_assistantmode_desc">Возможность запуска RebootManager вместо Google Assistant</string>
+	<string name="setting_assistantmode_guides">Откройте раздел «Помощник» и выберите RebootManager</string>
+	
 	<!-- о программе -->
 	<string name="about">О программе</string>
 	<string name="info_app_version">Версия RebootManager</string>
