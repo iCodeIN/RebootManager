@@ -6,7 +6,7 @@
 <br>
 <p align="center">Простой и удобный менеджер для перезапуска системы в режим recovery или bootloader.
   <br><br>
-  <a href="https://git.io/JfwlG">Github Releases</a> · <a href="https://4pda.ru/forum/index.php?showtopic=942423">4PDA</a> · <a href="https://git.io/JfwlL">Wiki</a>
+  <a href="https://git.io/JfwlG">Github Releases</a> · <a href="https://4pda.ru/forum/index.php?showtopic=942423">4PDA</a> · <a href="https://t.me/o1310">Telegram</a>
 </p>
 
 ---
