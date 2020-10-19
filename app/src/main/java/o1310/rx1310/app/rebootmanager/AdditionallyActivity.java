@@ -59,6 +59,12 @@ public class AdditionallyActivity extends PreferenceActivity {
 		hideIcon.setTitle(R.string.setting_hide_icon);
 		hideIcon.setSummary(R.string.setting_hide_icon_desc);
 		
+		// переключатель Pro-режима
+		SwitchPreference proMode = new SwitchPreference(this);
+		proMode.setKey("SETTING_PRO_MODE");
+		proMode.setTitle(R.string.setting_pro_mode);
+		proMode.setSummary(R.string.setting_pro_mode_desc);
+		
 		// пункт для удаления приложения
 		Preference uninstallApp = new Preference(this);
 		uninstallApp.setKey("SETTING_UNINSTALL_APP");
@@ -79,7 +85,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 		Preference appVersion = new Preference(this);
 		appVersion.setKey("ABOUT_APP_VERSION");
 		appVersion.setTitle(R.string.info_app_version);
-		appVersion.setSummary(RebootManager.appVersion(this));
+		appVersion.setSummary(RebootManager.appVersion(this) + " (extended)");
 		
 		// пункт с именем автора (rx1310)
 		Preference appAuthor = new Preference(this);
@@ -126,6 +132,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 			}
 		}
 		
+		p.addPreference(proMode);
 		p.addPreference(uninstallApp);
 		
 		p.addPreference(ctgAbout);
@@ -166,7 +173,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 				break;
 				
 			case "ABOUT_APP_VERSION":
-				RebootManager.showToast("made with " + ("♥️") + " by rx1310 (in o1310)", this);
+				RebootManager.showToast( "made with " + ("♥️") + " by rx1310 (in o1310)", this);
 				RebootManager.openUrl("https://github.com/o1310/RebootManager", this);
 				break;
 				
