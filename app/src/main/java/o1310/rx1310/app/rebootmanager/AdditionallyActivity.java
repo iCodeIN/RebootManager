@@ -92,7 +92,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 		Preference appVersion = new Preference(this);
 		appVersion.setKey("ABOUT_APP_VERSION");
 		appVersion.setTitle(R.string.info_app_version);
-		appVersion.setSummary(RebootManager.appVersion(this) + " (extended)");
+		appVersion.setSummary(RebootManager.appVersion(this));
 		
 		// пункт с именем автора (rx1310)
 		Preference appAuthor = new Preference(this);
