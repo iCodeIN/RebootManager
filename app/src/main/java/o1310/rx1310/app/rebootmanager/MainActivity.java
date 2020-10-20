@@ -9,18 +9,24 @@ package o1310.rx1310.app.rebootmanager;
 // простите. я говнокодер.
 
 import android.app.AlertDialog;
+
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.Intent;
+
 import android.os.Bundle;
+
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
+
 import android.text.Html;
+
 import eu.chainfire.libsuperuser.Shell;
+
 import o1310.rx1310.app.rebootmanager.R;
 import o1310.rx1310.app.rebootmanager.RebootManager;
-import android.content.Intent;
 
 public class MainActivity extends PreferenceActivity {
 	

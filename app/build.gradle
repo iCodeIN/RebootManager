@@ -1,26 +1,35 @@
 apply plugin: 'com.android.application'
 
 android {
+	
     compileSdkVersion 29
     
-
     defaultConfig {
+		
         applicationId "o1310.rx1310.app.rebootmanager"
         minSdkVersion 14
         targetSdkVersion 29
         versionCode 201019
         versionName "14"
+		
     }
+	
     buildTypes {
+		
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+		
     }
+	
 }
 
 dependencies {
+	
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+	
 	implementation 'android.arch.core:runtime:1.1.1'
 	implementation 'eu.chainfire:libsuperuser:1.1.0.+'
+	
 }

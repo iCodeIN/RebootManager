@@ -7,22 +7,29 @@
 package o1310.rx1310.app.rebootmanager;
 
 import android.app.AlertDialog;
+
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+
 import android.net.Uri;
+
 import android.os.Build;
 import android.os.Bundle;
+
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+
 import android.text.Html;
+
 import eu.chainfire.libsuperuser.Shell;
+
 import o1310.rx1310.app.rebootmanager.AdditionallyActivity;
 import o1310.rx1310.app.rebootmanager.MainActivity;
 import o1310.rx1310.app.rebootmanager.R;
