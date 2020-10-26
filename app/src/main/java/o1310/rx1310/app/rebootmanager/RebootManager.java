@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 public class RebootManager {
 	
+	public static boolean isBetaBuild = true;
+	
 	public static String CMD_SHUTDOWN = "su -c svc power shutdown"; // команда для выключения устройства
 	public static String CMD_SHUTDOWN_V2 = "su -c reboot -p"; // команда для выключения устройства (v2)
 	public static String CMD_REBOOT_RECOVERY = "su -c svc power reboot recovery"; // команда для перехода в recovery
@@ -41,11 +43,18 @@ public class RebootManager {
 		PackageManager m = c.getPackageManager();
 		
 		try {
+			
 			// регистрируем PackageInfo
 			PackageInfo i = m.getPackageInfo(c.getPackageName(), 0);
 			s = i.versionName; // Получаем название версии
 			v = i.versionCode; // Получаем код версии
-			a = s + "." + v;   // Объединяем название и код версии для "вида"
+			
+			if (!isBetaBuild) {
+				a = s + "." + v;
+			} else {
+				a = s + "." + v + " (beta)";
+			}
+			
 		} catch(PackageManager.NameNotFoundException e) {
 			// в случае ошибки вернем "error(String.appVersion)"
 			e.printStackTrace();
