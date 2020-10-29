@@ -48,6 +48,9 @@ public class AdditionallyActivity extends PreferenceActivity {
 		// сохранение настроек
 		s = PreferenceManager.getDefaultSharedPreferences(this);
 		
+		// булево значение пункта hideIcon
+		Boolean appIconHideState = s.getBoolean("SETTING_HIDE_ICON", false);
+		
 		// создаем экран
 		PreferenceScreen p = getPreferenceManager().createPreferenceScreen(this);
 		setPreferenceScreen(p);
@@ -66,11 +69,28 @@ public class AdditionallyActivity extends PreferenceActivity {
 		proMode.setTitle(R.string.setting_pro_mode);
 		proMode.setSummary(R.string.setting_pro_mode_desc);
 			
+		// пункт для настройки AssistantMode
+		final Preference setAssistantMode = new Preference(this);
+		setAssistantMode.setKey("SETTING_ASSISTANTMODE");
+		setAssistantMode.setTitle(R.string.setting_assistantmode);
+		setAssistantMode.setSummary(R.string.setting_assistantmode_desc);
+
+		// пункт для настройки A2IGA
+		final Preference installInA2IGA = new Preference(this);
+		installInA2IGA.setKey("SETTING_INSTALL_IN_A2IGA");
+		installInA2IGA.setTitle(R.string.setting_install_in_a2iga);
+		
+		if (appIconHideState) {
+			setAssistantMode.setEnabled(false);
+			installInA2IGA.setEnabled(false);
+		}
+		
 		// настройка "Скрыть иконку"
 		SwitchPreference hideIcon = new SwitchPreference(this);
 		hideIcon.setKey("SETTING_HIDE_ICON");
 		hideIcon.setTitle(R.string.setting_hide_icon);
 		hideIcon.setSummary(R.string.setting_hide_icon_desc);
+		hideIcon.setDefaultValue(false);
 		hideIcon.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 			
 			public boolean onPreferenceChange(Preference p, Object o) {
@@ -80,10 +100,21 @@ public class AdditionallyActivity extends PreferenceActivity {
 				PackageManager m = getPackageManager();
 				
 				if (b) {
+					
 					m.setComponentEnabledSetting(n, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+					
 					hideIconMsg();
+					
+					setAssistantMode.setEnabled(false);
+					installInA2IGA.setEnabled(false);
+					
 				} else {
+					
 					m.setComponentEnabledSetting(n, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+					
+					setAssistantMode.setEnabled(true);
+					installInA2IGA.setEnabled(true);
+					
 				}
 				
 				RebootManager.showToast(getString(R.string.msg_restart_for_apply), AdditionallyActivity.this);
@@ -98,17 +129,6 @@ public class AdditionallyActivity extends PreferenceActivity {
 		Preference uninstallApp = new Preference(this);
 		uninstallApp.setKey("SETTING_UNINSTALL_APP");
 		uninstallApp.setTitle(R.string.setting_uninstall_app);
-		
-		// пункт для настройки AssistantMode
-		Preference setAssistantMode = new Preference(this);
-		setAssistantMode.setKey("SETTING_ASSISTANTMODE");
-		setAssistantMode.setTitle(R.string.setting_assistantmode);
-		setAssistantMode.setSummary(R.string.setting_assistantmode_desc);
-		
-		// пункт для настройки A2IGA
-		Preference installInA2IGA = new Preference(this);
-		installInA2IGA.setKey("SETTING_INSTALL_IN_A2IGA");
-		installInA2IGA.setTitle(R.string.setting_install_in_a2iga);
 		
 		// пункт с версией приложения
 		Preference appVersion = new Preference(this);
