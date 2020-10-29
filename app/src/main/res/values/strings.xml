@@ -36,7 +36,6 @@
 	<!-- сообщения пользователю -->
 	<string name="msg_root_not_available">For the program to work properly, you need to get superuser rights (root)</string>
 	<string name="msg_restart_for_apply">You need to restart your device to apply</string>
-	<string name="msg_hide_icon">Do you really want to hide the RebootManager app icon from the list of installed apps in your menu? &lt;br&gt;&lt;br&gt;This action cannot be undone.&lt;br&gt;To return the app icon, reinstall the RebootManager.&lt;br&gt;&lt;br&gt;&lt;b&gt;Want to hide the app icon?&lt;/b&gt;</string>
 	<string name="msg_reboot_system_soft">&lt;b&gt;The system may not boot!&lt;/b&gt;&lt;br&gt;&lt;br&gt;After performing a reboot, some devices or certain firmware may hang during the system startup process (bootloop), but if you hold the "Power" button for a long time, the system will restart normally.&lt;br&gt;&lt;br&gt;&lt;b&gt;Do You really want to restart the system at your own risk?&lt;/b&gt;</string>
 	
 	<!-- настройки -->

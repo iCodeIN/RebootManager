@@ -60,17 +60,38 @@ public class AdditionallyActivity extends PreferenceActivity {
 		PreferenceCategory ctgAbout = new PreferenceCategory(this);
 		ctgAbout.setTitle(R.string.about);
 		
-		// настройка "Скрыть иконку"
-		Preference hideIcon = new Preference(this);
-		hideIcon.setKey("SETTING_HIDE_ICON");
-		hideIcon.setTitle(R.string.setting_hide_icon);
-		hideIcon.setSummary(R.string.setting_hide_icon_desc);
-		
 		// переключатель Pro-режима
 		SwitchPreference proMode = new SwitchPreference(this);
 		proMode.setKey("SETTING_PRO_MODE");
 		proMode.setTitle(R.string.setting_pro_mode);
 		proMode.setSummary(R.string.setting_pro_mode_desc);
+			
+		// настройка "Скрыть иконку"
+		SwitchPreference hideIcon = new SwitchPreference(this);
+		hideIcon.setKey("SETTING_HIDE_ICON");
+		hideIcon.setTitle(R.string.setting_hide_icon);
+		hideIcon.setSummary(R.string.setting_hide_icon_desc);
+		hideIcon.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+			
+			public boolean onPreferenceChange(Preference p, Object o) {
+				
+				boolean b = o;
+				ComponentName n = new ComponentName(AdditionallyActivity.this, MainActivity.class);
+				PackageManager m = getPackageManager();
+				
+				if (b) {
+					m.setComponentEnabledSetting(n, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+				} else {
+					m.setComponentEnabledSetting(n, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+				}
+				
+				RebootManager.showToast(getString(R.string.msg_restart_for_apply), AdditionallyActivity.this);
+				
+				return true;
+				
+			}
+			
+		});
 		
 		// пункт для удаления приложения
 		Preference uninstallApp = new Preference(this);
@@ -156,10 +177,6 @@ public class AdditionallyActivity extends PreferenceActivity {
 
 		switch (p.getKey()) {
 
-			case "SETTING_HIDE_ICON":
-				hideIconDlg(); // вызываем диалог
-				break;
-				
 			case "SETTING_ASSISTANTMODE":
 				startActivity(new Intent(android.provider.Settings.ACTION_VOICE_INPUT_SETTINGS));
 				RebootManager.showToast(getString(R.string.setting_assistantmode_guides), this);
@@ -200,35 +217,6 @@ public class AdditionallyActivity extends PreferenceActivity {
 
 		return super.onPreferenceTreeClick(s, p);
 
-	}
-	
-	// скрытие иконки
-	void hideIconDlg(){
-		
-		// создаем диалог
-		AlertDialog.Builder b = new AlertDialog.Builder(this);
-		
-		b.setTitle(R.string.setting_hide_icon); // заголовок
-		b.setMessage(Html.fromHtml(getString(R.string.msg_hide_icon))); // сообщение (+ задействованы теги html)
-		b.setCancelable(false); // отключаем скрытие окна по нажатию за границы окна
-		b.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Да"
-			public void onClick(DialogInterface d, int i) {
-				ComponentName n = new ComponentName(AdditionallyActivity.this, MainActivity.class); // скрываем иконку
-				PackageManager m = getPackageManager();
-				m.setComponentEnabledSetting(n, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-				RebootManager.showToast(getString(R.string.msg_restart_for_apply), getApplicationContext()); // отображаем toast уведомление
-			}
-		});
-		b.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() { // обработка нажатия кнопки "Нет"
-			public void onClick(DialogInterface d, int i) {
-				d.cancel(); // закрывает диалог
-			}
-		});
-		
-		AlertDialog a = b.create(); // создаем диалог
-	
-		a.show(); // отображаем диалог
-		
 	}
 	
 	// информация о SU
