@@ -81,6 +81,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 				
 				if (b) {
 					m.setComponentEnabledSetting(n, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+					hideIconMsg();
 				} else {
 					m.setComponentEnabledSetting(n, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
 				}
@@ -217,6 +218,19 @@ public class AdditionallyActivity extends PreferenceActivity {
 
 		return super.onPreferenceTreeClick(s, p);
 
+	}
+	
+	// Предупреждение при скрытии иконки
+	void hideIconMsg() {
+		
+		AlertDialog.Builder b = new AlertDialog.Builder(this);
+		b.setIcon(R.mipmap.ic_launcher_round);
+		b.setTitle(R.string.app_name);
+		b.setMessage(R.string.msg_hide_icon_tip);
+		
+		AlertDialog d = b.create();
+		d.show();
+		
 	}
 	
 	// информация о SU
