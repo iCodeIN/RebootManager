@@ -35,7 +35,8 @@
 	<string name="msg_root_not_available">Для працездатності програми необхідно отримати права суперкористувача (root)</string>
 	<string name="msg_restart_for_apply">Необхідно перезавантажити пристрій для застосування</string>
 	<string name="msg_reboot_system_soft">&lt;b&gt;Система може не завантажитися!&lt;/b&gt;&lt;br&gt;&lt;br&gt;Після виконання перезавантаження деякі пристрої або певні прошивки можуть зависнути на процесі запуску системи (bootloop), але якщо утримувати тривалий час кнопку «Power» система перезавантажиться в штатному режимі.&lt;br&gt;&lt;br&gt;&lt;b&gt;Ви дійсно хочете виконати перезапуск системи на свій страх і ризик?&lt;/b&gt;</string>
-
+	<string name="msg_hide_icon_tip">Після перезавантаження системи ReboatManager зникне з меню.\n\nЩоб відкрити вікно «Додатково», натисніть та утримуйте палець на будь-який QuickTile з ReboatManager на панелі швидкого доступу.</string>
+	
 	<!-- настройки -->
 	<string name="settings">Налаштування</string>
 	<string name="setting_hide_icon">Приховати іконку</string>
