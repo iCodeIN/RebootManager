@@ -54,8 +54,6 @@
 	<string name="info_app_version">Версія RebootManager</string>
 	<string name="info_app_author">Автор програми</string>
 	<string name="info_app_translator">Локалізатор</string>
-	<string name="info_app_url">Веб-сайт</string>
-	<string name="info_app_url_desc">Офіційний веб-сайт RebootManager, де можна завантажити оновлення, подивитися вихідний код або дізнатися більше про проект</string>
 	<string name="info_su">Права суперкористувача</string>
 
 </resources>

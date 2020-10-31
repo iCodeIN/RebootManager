@@ -38,6 +38,8 @@ public class RebootIntoSafeModeTile extends TileService {
 		}
 
 		t.updateTile();
+		
+		super.onStartListening();
 
 	}
 

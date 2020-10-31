@@ -38,6 +38,8 @@ public class RebootIntoBootloaderTile extends TileService {
 		}
 
 		t.updateTile();
+		
+		super.onStartListening();
 
 	}
 

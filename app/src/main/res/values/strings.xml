@@ -57,8 +57,7 @@
 	<string name="info_app_version">RebootManager version</string>
 	<string name="info_app_author">Dev</string>
 	<string name="info_app_translator">Translator</string>
-	<string name="info_app_url">Website</string>
-	<string name="info_app_url_desc">Official RebootManager website where you can download updates, view source code, or learn more about the project</string>
+	<string name="info_app_url">Telegram</string>
 	<string name="info_su">SU info</string>
 	
 </resources>

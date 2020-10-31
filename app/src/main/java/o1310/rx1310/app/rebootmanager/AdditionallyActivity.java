@@ -141,7 +141,6 @@ public class AdditionallyActivity extends PreferenceActivity {
 		Preference appUrl = new Preference(this);
 		appUrl.setKey("ABOUT_APP_URL");
 		appUrl.setTitle(R.string.info_app_url);
-		appUrl.setSummary(R.string.info_app_url_desc);
 		
 		// информация о рут доступе
 		Preference sysSuInfo = new Preference(this);
@@ -177,7 +176,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 		p.addPreference(appVersion);
 		p.addPreference(appAuthor);
 		p.addPreference(appTranslator);
-		//p.addPreference(appUrl);
+		p.addPreference(appUrl);
 		p.addPreference(sysSuInfo);
 		
 	}
@@ -220,7 +219,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 				break;
 				
 			case "ABOUT_APP_URL":
-				RebootManager.openUrl("https://o1310.github.io", this);
+				RebootManager.openUrl("https://t.me/o1310", this);
 				break;
 
 		}

@@ -38,6 +38,8 @@ public class SoftRebootTile extends TileService {
 		}
 
 		t.updateTile();
+		
+		super.onStartListening();
 
 	}
 

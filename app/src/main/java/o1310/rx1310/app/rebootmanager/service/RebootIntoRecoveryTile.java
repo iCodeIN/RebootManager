@@ -38,6 +38,8 @@ public class RebootIntoRecoveryTile extends TileService {
 		}
 
 		t.updateTile();
+		
+		super.onStartListening();
 
 	}
 
