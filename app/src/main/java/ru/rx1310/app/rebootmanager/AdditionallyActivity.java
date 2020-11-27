@@ -1,8 +1,4 @@
-/*!
- * @author      rx1310 <rx1310@inbox.ru>
- * @copyright   Copyright (c) o1310, 2020
- * @license     MIT License
- */
+// ! rx1310 <rx1310@inbox.ru> | Copyright (c) rx1310, 2020 | MIT License
 
 package ru.rx1310.app.rebootmanager;
 
@@ -164,7 +160,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 		
 		if (Build.VERSION.SDK_INT >= 23) {
 			p.addPreference(setAssistantMode);
-			if (RebootManager.appIsInstalled(this, "o1310.rx1310.app.a2iga")) {
+			if (RebootManager.appIsInstalled(this, "ru.rx1310.app.a2iga")) {
 				p.addPreference(installInA2IGA);
 			}
 		}
@@ -219,7 +215,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 				break;
 				
 			case "ABOUT_APP_URL":
-				RebootManager.openUrl("https://t.me/rx1310", this);
+				RebootManager.openUrl("https://t.me/rx1310_dev", this);
 				break;
 
 		}

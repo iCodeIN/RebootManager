@@ -1,8 +1,4 @@
-/*!
- * @author      rx1310 <rx1310@inbox.ru>
- * @copyright   Copyright (c) o1310, 2020
- * @license     MIT License
- */
+// ! rx1310 <rx1310@inbox.ru> | Copyright (c) rx1310, 2020 | MIT License
 
 package ru.rx1310.app.rebootmanager;
 
@@ -17,7 +13,7 @@ import android.widget.Toast;
 
 public class RebootManager {
 	
-	public static boolean isBetaBuild = true;
+	public static boolean isBetaBuild = false;
 	
 	public static String CMD_SHUTDOWN = "su -c svc power shutdown"; // команда для выключения устройства
 	public static String CMD_SHUTDOWN_V2 = "su -c reboot -p"; // команда для выключения устройства (v2)
