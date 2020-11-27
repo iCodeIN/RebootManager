@@ -1,9 +1,5 @@
-/*!
- * @author      rx1310 <rx1310@inbox.ru>
- * @copyright   Copyright (c) o1310, 2020
- * @license     MIT License
- */
-
+// ! rx1310 <rx1310@inbox.ru> | Copyright (c) rx1310, 2020 | MIT License
+ 
 package ru.rx1310.app.rebootmanager.service;
 
 import android.graphics.drawable.Icon;
