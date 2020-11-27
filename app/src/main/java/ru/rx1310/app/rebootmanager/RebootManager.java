@@ -4,7 +4,7 @@
  * @license     MIT License
  */
 
-package o1310.rx1310.app.rebootmanager;
+package ru.rx1310.app.rebootmanager;
 
 import android.content.Context;
 import android.content.Intent;

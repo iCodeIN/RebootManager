@@ -4,7 +4,7 @@
  * @license     MIT License
  */
 
-package o1310.rx1310.app.rebootmanager;
+package ru.rx1310.app.rebootmanager;
 
 import android.app.AlertDialog;
 
@@ -30,10 +30,10 @@ import android.text.Html;
 
 import eu.chainfire.libsuperuser.Shell;
 
-import o1310.rx1310.app.rebootmanager.AdditionallyActivity;
-import o1310.rx1310.app.rebootmanager.MainActivity;
-import o1310.rx1310.app.rebootmanager.R;
-import o1310.rx1310.app.rebootmanager.RebootManager;
+import ru.rx1310.app.rebootmanager.AdditionallyActivity;
+import ru.rx1310.app.rebootmanager.MainActivity;
+import ru.rx1310.app.rebootmanager.R;
+import ru.rx1310.app.rebootmanager.RebootManager;
 
 public class AdditionallyActivity extends PreferenceActivity {
 
@@ -206,8 +206,8 @@ public class AdditionallyActivity extends PreferenceActivity {
 				break;
 				
 			case "ABOUT_APP_VERSION":
-				RebootManager.showToast( "made with " + ("♥️") + " by rx1310 (in o1310)", this);
-				RebootManager.openUrl("https://github.com/o1310/RebootManager", this);
+				RebootManager.showToast( "made with " + ("♥️") + " by rx1310", this);
+				RebootManager.openUrl("https://github.com/rx1310/RebootManager", this);
 				break;
 				
 			case "ABOUT_APP_AUTHOR_URL":
@@ -219,7 +219,7 @@ public class AdditionallyActivity extends PreferenceActivity {
 				break;
 				
 			case "ABOUT_APP_URL":
-				RebootManager.openUrl("https://t.me/o1310", this);
+				RebootManager.openUrl("https://t.me/rx1310", this);
 				break;
 
 		}

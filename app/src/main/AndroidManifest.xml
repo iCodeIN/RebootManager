@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
-    package="o1310.rx1310.app.rebootmanager">
+    package="ru.rx1310.app.rebootmanager">
 	
-	<original-package android:name="o1310.rx1310.app.rebootmanager" />
+	<original-package android:name="ru.rx1310.app.rebootmanager" />
 	
 	<supports-screens 
 		android:anyDensity="true" 

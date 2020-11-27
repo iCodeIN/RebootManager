@@ -4,7 +4,7 @@
  * @license     MIT License
  */
 
-package o1310.rx1310.app.rebootmanager;
+package ru.rx1310.app.rebootmanager;
 
 // простите. я говнокодер.
 
@@ -25,8 +25,8 @@ import android.text.Html;
 
 import eu.chainfire.libsuperuser.Shell;
 
-import o1310.rx1310.app.rebootmanager.R;
-import o1310.rx1310.app.rebootmanager.RebootManager;
+import ru.rx1310.app.rebootmanager.R;
+import ru.rx1310.app.rebootmanager.RebootManager;
 
 public class MainActivity extends PreferenceActivity {
 	
