@@ -1,12 +1,12 @@
 <p align="center">
-  <a href="https://o1310.github.io">
-    <img src="https://github.com/o1310/RebootManager/blob/master/app-logo.png?raw=true" alt="RebootManager logo" width="50%">
+  <a href="https://rx1310.github.io">
+    <img src="https://github.com/rx1310/RebootManager/blob/master/app-logo.png?raw=true" alt="RebootManager logo" width="50%">
   </a>
 </p>
 <br>
 <p align="center">Простой и удобный менеджер для перезапуска системы в режим recovery или bootloader.
   <br><br>
-  <a href="https://github.com/o1310/RebootManager/releases">Github Releases</a> · <a href="https://4pda.ru/forum/index.php?showtopic=942423">4PDA</a>
+  <a href="https://github.com/rx1310/RebootManager/releases">Github Releases</a> · <a href="https://4pda.ru/forum/index.php?showtopic=942423">4PDA</a>
 </p>
 
 ---
@@ -21,7 +21,6 @@
 ```
 MIT License
 
-Copyright (c) 2020 o1310
 Copyright (c) 2019 rx1310
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
