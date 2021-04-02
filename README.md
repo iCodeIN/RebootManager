@@ -1,17 +1,27 @@
-<p align="center">
-  <a href="https://rx1310.github.io">
-    <img src="https://github.com/rx1310/RebootManager/blob/master/app-logo.png?raw=true" alt="RebootManager logo" width="50%">
-  </a>
-</p>
-<br>
-<p align="center">Простой и удобный менеджер для перезапуска системы в режим recovery или bootloader.
-  <br><br>
-  <a href="https://github.com/rx1310/RebootManager/releases">Github Releases</a> · <a href="https://4pda.ru/forum/index.php?showtopic=942423">4PDA</a> · <a href="https://t.me/rx1310">Telegram</a>
-</p>
+<div align="center">
+  <img src="https://github.com/rx1310/RebootManager/blob/master/app-logo.png?raw=true" alt="RebootManager logo" width="50%"><br><br>
+  <h1>RebootManager</h1>
+  <p>Простой и удобный менеджер для перезапуска системы в режим recovery или bootloader.</p>
+  <p>
+    <img src="https://img.shields.io/badge/min%20api%20level-14%2B-brightgreen?style=flat">
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=rx1310.RebootManager">
+    <a href="https://github.com/rx1310/RebootManager/releases"><img src="https://img.shields.io/github/v/release/rx1310/RebootManager"></a>
+    <a href="https://github.com/rx1310/RebootManager/blob/master/LICENSE"><img src="https://img.shields.io/github/license/rx1310/RebootManager"></a>
+    <img src="https://img.shields.io/github/downloads/rx1310/RebootManager/total">
+    <img src="https://img.shields.io/github/languages/code-size/rx1310/RebootManager">
+    <img src="https://img.shields.io/github/repo-size/rx1310/RebootManager">
+    <img src="https://img.shields.io/github/languages/count/rx1310/RebootManager">
+    <img src="https://img.shields.io/github/languages/top/rx1310/RebootManager">
+    <img src="https://img.shields.io/github/stars/rx1310/RebootManager">
+    <img src="https://img.shields.io/github/watchers/rx1310/RebootManager">
+    <img src="https://img.shields.io/github/forks/rx1310/RebootManager">
+    <img src="https://img.shields.io/github/release-date/rx1310/RebootManager">
+    <a href="https://github.com/rx1310/RebootManager/commits/master"><img src="https://img.shields.io/github/last-commit/rx1310/RebootManager"></a>
+  </p>
+  
+</div>
 
----
-
-### О проекте
+## О проекте
 RebootManager - простая, легкая и удобная утилита, которая сохранит много времени и сил пользователю.
 
 Суть работы RebootManager (RM) заключается в том, чтобы выполнить переход в, например, режим восстановления (recovery mode) без лишних телодвижений.
@@ -26,33 +36,8 @@ RebootManager - простая, легкая и удобная утилита, �
 - расширенные возможности;
 - QuickTiles.
 
-### Благодарности
+## Благодарности
 * [Chainfire](https://github.com/Chainfire/libsuperuser) - за libsuperuser
 
-### Авторы
+## Авторы
 * [rx1310](https://github.com/rx1310) - создание и идея проекта
-
-### Лицензия
-```
-MIT License
-
-Copyright (c) 2019 rx1310
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
